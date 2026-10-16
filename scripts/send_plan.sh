@@ -17,19 +17,28 @@ ACTIVITIES_PER_SLOT=3    # Number of activities per message
 KID_NAME="Kiyu"
 
 # Environment variables (set by GitHub Actions)
-BOT_TOKEN="${TELEGRAM_BOT_TOKEN:-}"
-CHAT_ID="${TELEGRAM_CHAT_ID:-}"
+BOT_TOKEN="$(echo "${TELEGRAM_BOT_TOKEN:-}" | xargs)"
+CHAT_ID="$(echo "${TELEGRAM_CHAT_ID:-}" | xargs)"
 SLOT="${TIME_SLOT:-morning}"
 DRY_RUN="${DRY_RUN:-false}"
 
 # ─── Validate inputs ──────────────────────────────────────────
 if [[ "$DRY_RUN" != "true" ]]; then
+  MISSING_SECRETS=0
   if [[ -z "$BOT_TOKEN" ]]; then
-    echo "❌ Error: TELEGRAM_BOT_TOKEN is not set"
-    exit 1
+    echo "❌ Error: TELEGRAM_BOT_TOKEN secret is not set or empty in GitHub Repository Secrets!"
+    echo "👉 Fix: Go to GitHub Repo -> Settings -> Secrets and variables -> Actions"
+    echo "        Add repository secret: TELEGRAM_BOT_TOKEN (your bot token from @BotFather)"
+    MISSING_SECRETS=1
   fi
   if [[ -z "$CHAT_ID" ]]; then
-    echo "❌ Error: TELEGRAM_CHAT_ID is not set"
+    echo "❌ Error: TELEGRAM_CHAT_ID secret is not set or empty in GitHub Repository Secrets!"
+    echo "👉 Fix: Go to GitHub Repo -> Settings -> Secrets and variables -> Actions"
+    echo "        Add repository secret: TELEGRAM_CHAT_ID (your family group chat ID, e.g. -100xxxxxxxxxx)"
+    MISSING_SECRETS=1
+  fi
+  if [[ "$MISSING_SECRETS" -eq 1 ]]; then
+    echo "💡 Note: GitHub Secret names are case-sensitive. Make sure they are exact."
     exit 1
   fi
 fi
@@ -203,19 +212,34 @@ else
   if [[ "$HTTP_CODE" == "200" ]]; then
     echo "✅ Message sent successfully!"
   else
-    echo "❌ Failed to send message (HTTP $HTTP_CODE)"
-    echo "Response: $BODY"
-    # Try again without parse_mode in case of formatting issues
-    echo "🔄 Retrying without parse_mode..."
+    echo "⚠️ Warning: Failed to send formatted message (HTTP $HTTP_CODE)"
+    echo "Telegram response: $BODY"
+    
+    # Check for common Telegram errors
+    if echo "$BODY" | grep -qi "chat not found"; then
+      echo "👉 Common cause: The chat ID is invalid, or the bot has NOT been added as a member to the group!"
+      echo "👉 Fix: Add the bot to your family Telegram group, or check if the chat ID includes the minus sign '-'."
+    elif echo "$BODY" | grep -qi "Unauthorized"; then
+      echo "👉 Common cause: The TELEGRAM_BOT_TOKEN is expired, invalid, or revoked."
+      echo "👉 Fix: Get a new token from @BotFather (/token) and update TELEGRAM_BOT_TOKEN in GitHub secrets."
+    elif echo "$BODY" | grep -qi "bot was kicked"; then
+      echo "👉 Common cause: The bot was removed from the group."
+      echo "👉 Fix: Add the bot back to the group."
+    fi
+
+    # Try again without parse_mode in case of HTML tag formatting issues
+    echo "🔄 Retrying with plain text fallback..."
     RESPONSE2=$(curl -s -w "\n%{http_code}" -X POST \
       "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
       --data-urlencode "chat_id=${CHAT_ID}" \
       --data-urlencode "text=${MESSAGE}")
     HTTP_CODE2=$(echo "$RESPONSE2" | tail -1)
+    BODY2=$(echo "$RESPONSE2" | head -n -1)
     if [[ "$HTTP_CODE2" == "200" ]]; then
       echo "✅ Message sent successfully (plain text fallback)!"
     else
-      echo "❌ Retry also failed (HTTP $HTTP_CODE2)"
+      echo "❌ Failed to send message (HTTP $HTTP_CODE2)"
+      echo "Telegram response: $BODY2"
       exit 1
     fi
   fi
