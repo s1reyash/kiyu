@@ -27,7 +27,29 @@
           "completed": false
         }
       ],
-      "afternoon": [],
+      "afternoon": [
+        {
+          "id": "2026-10-16-afternoon-0",
+          "name": "Coloring & drawing",
+          "emoji": "🎨",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-16-afternoon-1",
+          "name": "Balloon games",
+          "emoji": "🎈",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-16-afternoon-2",
+          "name": "Outdoor cycling",
+          "emoji": "🚲",
+          "category": "creative",
+          "completed": false
+        }
+      ],
       "evening": []
     }
   }

@@ -15,6 +15,21 @@
       "name": "Water the plants",
       "date": "2026-10-16",
       "slot": "morning"
+    },
+    {
+      "name": "Coloring & drawing",
+      "date": "2026-10-16",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Balloon games",
+      "date": "2026-10-16",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Outdoor cycling",
+      "date": "2026-10-16",
+      "slot": "afternoon"
     }
   ]
 }
