@@ -30,6 +30,21 @@
       "name": "Outdoor cycling",
       "date": "2026-10-16",
       "slot": "afternoon"
+    },
+    {
+      "name": "Sand play",
+      "date": "2026-10-16",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Treasure hunt",
+      "date": "2026-10-16",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Puzzle solving",
+      "date": "2026-10-16",
+      "slot": "afternoon"
     }
   ]
 }
