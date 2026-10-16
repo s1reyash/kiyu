@@ -192,6 +192,16 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "$MESSAGE"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
+# ─── Inline Keyboard Markup ──────────────────────────────────
+DASHBOARD_URL="https://s1reyash.github.io/kiyu/"
+REPLY_MARKUP=$(jq -c -n --arg url "$DASHBOARD_URL" '{
+  "inline_keyboard": [
+    [
+      { "text": "📊 Open Kiyu Tracker & Mark Done", "url": $url }
+    ]
+  ]
+}')
+
 # ─── Send to Telegram ─────────────────────────────────────────
 if [[ "$DRY_RUN" == "true" ]]; then
   echo ""
@@ -204,7 +214,8 @@ else
     "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
     --data-urlencode "chat_id=${CHAT_ID}" \
     --data-urlencode "text=${MESSAGE}" \
-    --data-urlencode "parse_mode=HTML")
+    --data-urlencode "parse_mode=HTML" \
+    --data-urlencode "reply_markup=${REPLY_MARKUP}")
 
   HTTP_CODE=$(echo "$RESPONSE" | tail -1)
   BODY=$(echo "$RESPONSE" | head -n -1)
@@ -232,7 +243,8 @@ else
     RESPONSE2=$(curl -s -w "\n%{http_code}" -X POST \
       "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
       --data-urlencode "chat_id=${CHAT_ID}" \
-      --data-urlencode "text=${MESSAGE}")
+      --data-urlencode "text=${MESSAGE}" \
+      --data-urlencode "reply_markup=${REPLY_MARKUP}")
     HTTP_CODE2=$(echo "$RESPONSE2" | tail -1)
     BODY2=$(echo "$RESPONSE2" | head -n -1)
     if [[ "$HTTP_CODE2" == "200" ]]; then
@@ -269,5 +281,37 @@ echo "$UPDATED_HISTORY" | jq '.' > "$HISTORY_FILE"
 HISTORY_SIZE=$(jq '.recent_activities | length' "$HISTORY_FILE")
 echo "✅ History updated ($HISTORY_SIZE activities tracked)"
 
+# ─── Update tracker data for dashboard ────────────────────────
+echo ""
+echo "📊 Updating tracker data for dashboard..."
+TRACKER_FILE="$REPO_DIR/data/tracker.json"
+DOCS_TRACKER_FILE="$REPO_DIR/docs/data/tracker.json"
+
+if [[ ! -f "$TRACKER_FILE" ]]; then
+  echo '{"last_updated":"","streak_days":1,"total_stars":0,"history":{}}' > "$TRACKER_FILE"
+fi
+
+# Format SELECTED into tracker items with completed: false and category
+TRACKER_ITEMS=$(echo "$SELECTED" | jq -c --arg slot "$SLOT" --arg date "$TODAY_ISO" \
+  '[to_entries[] | {
+    id: ($date + "-" + $slot + "-" + (.key|tostring)),
+    name: .value.name,
+    emoji: (.value.emoji // "⭐"),
+    category: (.value.category // "creative"),
+    completed: false
+  }]')
+
+# Update tracker.json for this date and slot
+UPDATED_TRACKER=$(jq --arg date "$TODAY_ISO" --arg slot "$SLOT" --argjson items "$TRACKER_ITEMS" \
+  '.last_updated = $date |
+   .history[$date] = (.history[$date] // {}) |
+   .history[$date][$slot] = $items' "$TRACKER_FILE")
+
+echo "$UPDATED_TRACKER" | jq '.' > "$TRACKER_FILE"
+mkdir -p "$(dirname "$DOCS_TRACKER_FILE")"
+cp "$TRACKER_FILE" "$DOCS_TRACKER_FILE"
+echo "✅ Tracker data synchronized ($SLOT slot)"
+
 echo ""
 echo "🎉 All done! Have a great day, $KID_NAME! 💛"
+

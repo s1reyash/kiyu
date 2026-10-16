@@ -2,16 +2,18 @@ name: 🧒 Kiyu's Daily Planner
 
 on:
   schedule:
-    # 7:00 AM IST = 1:30 AM UTC
+    # 7:00 AM IST = 1:30 AM UTC (Morning Routine)
     - cron: '30 1 * * *'
-    # 12:30 PM IST = 7:00 AM UTC
+    # 12:30 PM IST = 7:00 AM UTC (Afternoon Play)
     - cron: '0 7 * * *'
-    # 5:00 PM IST = 11:30 AM UTC
+    # 5:00 PM IST = 11:30 AM UTC (Evening Wind-Down)
     - cron: '30 11 * * *'
+    # 8:30 PM IST = 3:00 PM UTC (Daily Progress Report Card & Visual Chart)
+    - cron: '0 15 * * *'
   workflow_dispatch:
     inputs:
       slot:
-        description: 'Time slot to send (morning/afternoon/evening)'
+        description: 'Time slot or report to send (morning / afternoon / evening / summary)'
         required: false
         default: ''
       dry_run:
@@ -33,7 +35,7 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq jq
 
-      - name: Determine time slot
+      - name: Determine time slot or action
         id: slot
         run: |
           if [ -n "${{ github.event.inputs.slot }}" ]; then
@@ -44,36 +46,45 @@ jobs:
             MINUTE=$(date -u +%-M)
             UTC_MINUTES=$((HOUR * 60 + MINUTE))
 
-            # 1:30 UTC (90 min) → morning
-            # 7:00 UTC (420 min) → afternoon
-            # 11:30 UTC (690 min) → evening
-            if [ $UTC_MINUTES -lt 300 ]; then
+            # 1:30 UTC (90 min)  → morning (7:00 AM IST)
+            # 7:00 UTC (420 min) → afternoon (12:30 PM IST)
+            # 11:30 UTC (690 min)→ evening (5:00 PM IST)
+            # 15:00 UTC (900 min)→ summary (8:30 PM IST)
+            if [ $UTC_MINUTES -lt 250 ]; then
               echo "slot=morning" >> $GITHUB_OUTPUT
-            elif [ $UTC_MINUTES -lt 600 ]; then
+            elif [ $UTC_MINUTES -lt 550 ]; then
               echo "slot=afternoon" >> $GITHUB_OUTPUT
-            else
+            elif [ $UTC_MINUTES -lt 800 ]; then
               echo "slot=evening" >> $GITHUB_OUTPUT
+            else
+              echo "slot=summary" >> $GITHUB_OUTPUT
             fi
           fi
 
-      - name: Send daily plan
+      - name: Send daily plan or report card
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TIME_SLOT: ${{ steps.slot.outputs.slot }}
           DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
         run: |
-          chmod +x scripts/send_plan.sh
-          bash scripts/send_plan.sh
+          chmod +x scripts/*.sh
+          if [ "${{ steps.slot.outputs.slot }}" = "summary" ]; then
+            echo "📊 Running daily progress report card..."
+            bash scripts/send_daily_summary.sh
+          else
+            echo "📋 Sending activity plan for ${{ steps.slot.outputs.slot }}..."
+            bash scripts/send_plan.sh
+          fi
 
-      - name: Commit updated history
+      - name: Commit updated history and tracker data
         if: ${{ (github.event.inputs.dry_run || 'false') != 'true' }}
         run: |
           git config user.name "Kiyu Planner Bot"
           git config user.email "bot@kiyu-planner.local"
-          git add data/history.json
+          git add data/history.json data/tracker.json docs/data/tracker.json
           if ! git diff --cached --quiet; then
-            git commit -m "📋 Update activity history [skip ci]"
+            git commit -m "📋 Update activity history and progress tracker [skip ci]"
             git pull --rebase origin main || true
             git push origin main
           fi
