@@ -18,6 +18,7 @@
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
   <link rel="stylesheet" href="style.css">
+  <script src="assets/photo.js"></script>
 </head>
 <body>
   <div class="app-container">
@@ -25,7 +26,7 @@
     <header class="app-header">
       <div class="header-left">
         <div class="avatar-ring real-photo-ring">
-          <img src="assets/kiyu.jpg" alt="Kiyu" class="kiyu-avatar-img" onerror="this.src='docs/assets/kiyu.jpg';">
+          <img src="assets/kiyu.jpg" alt="Kiyu" class="kiyu-avatar-img" onerror="if(window.KIYU_PHOTO_DATA)this.src=window.KIYU_PHOTO_DATA;">
           <span class="online-dot"></span>
         </div>
         <div class="header-titles">
@@ -44,7 +45,7 @@
     <!-- Kiyu & Plushies Hero Showcase Banner -->
     <div class="plushie-crew-banner">
       <div class="plushie-crew-photo-wrap">
-        <img src="assets/kiyu.jpg" alt="Kiyu with Plushies" class="plushie-banner-img" onerror="this.src='docs/assets/kiyu.jpg';">
+        <img src="assets/kiyu.jpg" alt="Kiyu with Plushies" class="plushie-banner-img" onerror="if(window.KIYU_PHOTO_DATA)this.src=window.KIYU_PHOTO_DATA;">
       </div>
       <div class="plushie-crew-info">
         <div class="plushie-mascot-pill">🧸 Teddy & 🐱 Tiger Cat</div>
