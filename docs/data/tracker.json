@@ -1,7 +1,7 @@
 {
   "last_updated": "2026-10-16",
   "streak_days": 1,
-  "total_stars": 3,
+  "total_stars": 0,
   "history": {
     "2026-10-16": {
       "morning": [
@@ -30,27 +30,82 @@
       "afternoon": [
         {
           "id": "2026-10-16-afternoon-0",
-          "name": "Sand play",
-          "emoji": "🏖️",
+          "name": "Coloring & drawing",
+          "emoji": "🎨",
           "category": "creative",
           "completed": false
         },
         {
           "id": "2026-10-16-afternoon-1",
-          "name": "Treasure hunt",
-          "emoji": "🗺️",
+          "name": "Balloon games",
+          "emoji": "🎈",
           "category": "creative",
           "completed": false
         },
         {
           "id": "2026-10-16-afternoon-2",
-          "name": "Puzzle solving",
-          "emoji": "🧩",
-          "category": "creative",
+          "name": "Outdoor cycling",
+          "emoji": "🚲",
+          "category": "physical",
           "completed": false
         }
       ],
-      "evening": []
+      "evening": [
+        {
+          "id": "2026-10-16-evening-0",
+          "name": "Storytime with family",
+          "emoji": "📚",
+          "category": "learning",
+          "completed": false
+        },
+        {
+          "id": "2026-10-16-evening-1",
+          "name": "Gentle coloring",
+          "emoji": "🖍️",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-16-evening-2",
+          "name": "Cuddle & chat about the day",
+          "emoji": "🤗",
+          "category": "helping",
+          "completed": false
+        }
+      ],
+      "cries": [],
+      "water_glasses": 0,
+      "milk_glasses": 0
     }
-  }
+  },
+  "rewards": [
+    {
+      "id": "rew_1",
+      "title": "Favorite Storytime",
+      "emoji": "📖",
+      "stars": 5,
+      "unlocked": false
+    },
+    {
+      "id": "rew_2",
+      "title": "Playground Trip",
+      "emoji": "🛝",
+      "stars": 15,
+      "unlocked": false
+    },
+    {
+      "id": "rew_3",
+      "title": "Yummy Ice Cream",
+      "emoji": "🍦",
+      "stars": 25,
+      "unlocked": false
+    },
+    {
+      "id": "rew_4",
+      "title": "New Plushie Friend",
+      "emoji": "🧸",
+      "stars": 50,
+      "unlocked": false
+    }
+  ]
 }

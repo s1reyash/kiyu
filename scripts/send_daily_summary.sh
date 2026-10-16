@@ -110,9 +110,17 @@ MORNING_TEXT=$(format_slot_lines "$MORNING_ITEMS" "morning")
 AFTERNOON_TEXT=$(format_slot_lines "$AFTERNOON_ITEMS" "afternoon")
 EVENING_TEXT=$(format_slot_lines "$EVENING_ITEMS" "evening")
 
-# ─── Read Streak & Stars ──────────────────────────────────────
+# ─── Read Streak, Stars, Mood & Hydration ────────────────────
 STREAK=$(jq -r '.streak_days // 1' "$TRACKER_FILE")
 STARS=$(jq -r '.total_stars // 0' "$TRACKER_FILE")
+CRIES_COUNT=$(echo "$TODAY_DATA" | jq '(.cries // []) | length')
+if [[ "$CRIES_COUNT" -eq 0 ]]; then
+  CRY_REPORT="0 (Tear-Free Angel! 😇)"
+else
+  CRY_REPORT="${CRIES_COUNT} logged 🥺"
+fi
+WATER_VAL=$(echo "$TODAY_DATA" | jq -r '.water_glasses // 0')
+MILK_VAL=$(echo "$TODAY_DATA" | jq -r '.milk_glasses // 0')
 
 # ─── Compose Telegram Caption / Message ───────────────────────
 MESSAGE="🏆 <b>${KID_NAME}'s Daily Activity Report Card</b>
@@ -120,7 +128,9 @@ MESSAGE="🏆 <b>${KID_NAME}'s Daily Activity Report Card</b>
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📊 <b>Progress:</b> [<code>${PROGRESS_BAR}</code>] <b>${PERCENT}%</b> (${TOTAL_COMPLETED}/${TOTAL_ITEMS} done)
 ⭐ <b>Stars Collected:</b> ${STARS} ⭐
-🔥 <b>Daily Streak:</b> ${STREAK} Days!
+🔥 <b>Daily Streak:</b> ${STREAK} Days
+😭 <b>Tears Today:</b> ${CRY_REPORT}
+🥛 <b>Hydration:</b> ${MILK_VAL}/2 milk • 💧 ${WATER_VAL}/5 water
 
 🌞 <b>Morning Routine:</b>
 ${MORNING_TEXT}
@@ -132,7 +142,7 @@ ${AFTERNOON_TEXT}
 ${EVENING_TEXT}
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🌟 <i>Wonderful effort today, ${KID_NAME}! Sweet dreams tonight! 💫</i>"
+🧸 <i>Teddy & Tiger Cat say: Superstar effort today, ${KID_NAME}! Sweet dreams! ✨</i>"
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

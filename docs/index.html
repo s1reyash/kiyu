@@ -21,11 +21,11 @@
 </head>
 <body>
   <div class="app-container">
-    <!-- Top Header -->
+    <!-- Top Header with Kiyu's Real Photo -->
     <header class="app-header">
       <div class="header-left">
-        <div class="avatar-ring">
-          <span class="avatar-emoji">🧒</span>
+        <div class="avatar-ring real-photo-ring">
+          <img src="assets/kiyu.jpg" alt="Kiyu" class="kiyu-avatar-img" onerror="this.src='docs/assets/kiyu.jpg';">
           <span class="online-dot"></span>
         </div>
         <div class="header-titles">
@@ -40,6 +40,18 @@
         </button>
       </div>
     </header>
+
+    <!-- Kiyu & Plushies Hero Showcase Banner -->
+    <div class="plushie-crew-banner">
+      <div class="plushie-crew-photo-wrap">
+        <img src="assets/kiyu.jpg" alt="Kiyu with Plushies" class="plushie-banner-img" onerror="this.src='docs/assets/kiyu.jpg';">
+      </div>
+      <div class="plushie-crew-info">
+        <div class="plushie-mascot-pill">🧸 Teddy & 🐱 Tiger Cat</div>
+        <h2 class="plushie-crew-title">Kiyu's Happy Day!</h2>
+        <p class="plushie-crew-speech">"Let's complete all activities and keep tears away today!" ✨</p>
+      </div>
+    </div>
 
     <!-- Quick Stats Bar -->
     <section class="stats-row">
@@ -57,11 +69,11 @@
           <span class="stat-lbl">Day Streak</span>
         </div>
       </div>
-      <div class="stat-pill score-pill">
-        <span class="stat-icon">🎯</span>
+      <div class="stat-pill cry-pill" id="cryStatPill">
+        <span class="stat-icon" id="cryStatIcon">😇</span>
         <div class="stat-meta">
-          <span class="stat-val" id="completedRatio">0/0</span>
-          <span class="stat-lbl">Completed</span>
+          <span class="stat-val" id="cryCountDisplay">0</span>
+          <span class="stat-lbl">Cries Today</span>
         </div>
       </div>
     </section>
@@ -99,7 +111,7 @@
       </div>
     </section>
 
-    <!-- View Filter Tabs (All Dashboard, Tasks, Graphs, Badges) -->
+    <!-- View Filter Tabs (All Dashboard, Tasks, Cry Tracker, Graphs, Rewards) -->
     <nav class="view-tabs">
       <button class="tab-btn active" data-tab="allTab">
         <span class="tab-icon">🌟</span>
@@ -107,19 +119,103 @@
       </button>
       <button class="tab-btn" data-tab="checklistTab">
         <span class="tab-icon">📋</span>
-        <span>Checklist</span>
+        <span>Tasks</span>
+      </button>
+      <button class="tab-btn" data-tab="cryTrackerTab">
+        <span class="tab-icon">😭</span>
+        <span>Cry Baby</span>
       </button>
       <button class="tab-btn" data-tab="analyticsTab">
         <span class="tab-icon">📊</span>
         <span>Graphs</span>
       </button>
-      <button class="tab-btn" data-tab="trophyTab">
-        <span class="tab-icon">🏆</span>
-        <span>Badges</span>
+      <button class="tab-btn" data-tab="rewardTab">
+        <span class="tab-icon">🎁</span>
+        <span>Store</span>
       </button>
     </nav>
 
-    <!-- SECTION: Today's Tasks Checklist -->
+    <!-- SECTION 1: Cry Baby & Mood Tracker -->
+    <section id="crySection" class="section-container">
+      <div class="cry-tracker-card">
+        <div class="cry-tracker-header">
+          <div class="cry-title-wrap">
+            <span class="cry-badge">🧸 Mood & Tears</span>
+            <h3>😭 Cry Baby Tracker</h3>
+          </div>
+          <span class="cry-status-badge" id="cryStatusBadge">😇 Tear-Free Angel!</span>
+        </div>
+        
+        <p class="cry-card-desc">Track whether Kiyu cried or stayed calm today so parents can understand his mood patterns.</p>
+        
+        <div class="cry-action-row">
+          <button id="logCryBtn" class="cry-btn log-cry">
+            <span class="btn-emoji">😭</span>
+            <div class="btn-label-group">
+              <span class="main-label">Log a Cry Moment</span>
+              <span class="sub-label">Tap to record reason</span>
+            </div>
+          </button>
+          <button id="markCalmBtn" class="cry-btn mark-calm">
+            <span class="btn-emoji">😊</span>
+            <div class="btn-label-group">
+              <span class="main-label">Calm & Happy!</span>
+              <span class="sub-label">+1 Star for patience ⭐</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Cry History Log -->
+        <div class="cry-log-container" id="cryLogList">
+          <div class="empty-cry-msg">No cries logged today! Kiyu is being a superstar champion! 🌟</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Water & Milk Intake Tracker -->
+    <section id="hydrationSection" class="section-container">
+      <div class="hydration-card">
+        <div class="section-heading-bar">
+          <h3>🥛 Milk & 💧 Water Tracker</h3>
+          <span class="tap-hint">Daily Hydration</span>
+        </div>
+        <div class="hydration-grid">
+          <!-- Milk Tracker -->
+          <div class="hydrate-item milk-item">
+            <div class="hydrate-info">
+              <span class="hydrate-icon">🥛</span>
+              <div>
+                <h4>Milk Glasses</h4>
+                <p>Target: 2 glasses</p>
+              </div>
+            </div>
+            <div class="counter-controls">
+              <button class="counter-btn" id="minusMilkBtn">-</button>
+              <span class="counter-val" id="milkCount">0 / 2</span>
+              <button class="counter-btn plus-btn" id="plusMilkBtn">+</button>
+            </div>
+          </div>
+
+          <!-- Water Tracker -->
+          <div class="hydrate-item water-item">
+            <div class="hydrate-info">
+              <span class="hydrate-icon">💧</span>
+              <div>
+                <h4>Water Glasses</h4>
+                <p>Target: 5 glasses</p>
+              </div>
+            </div>
+            <div class="counter-controls">
+              <button class="counter-btn" id="minusWaterBtn">-</button>
+              <span class="counter-val" id="waterCount">0 / 5</span>
+              <button class="counter-btn plus-btn" id="plusWaterBtn">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Today's Tasks Checklist -->
     <main id="tasksSection" class="section-container">
       <div class="section-heading-bar">
         <h3>📋 Today's Activities</h3>
@@ -174,7 +270,22 @@
       </div>
     </main>
 
-    <!-- SECTION: Graphs & Visual Progress Analytics -->
+    <!-- SECTION 4: Reward Store (Star Shop) -->
+    <section id="rewardsSection" class="section-container">
+      <div class="reward-store-card">
+        <div class="section-heading-bar">
+          <h3>🎁 Star Reward Store</h3>
+          <span class="stars-balance-badge" id="storeBalanceBadge">⭐ 0 Stars Available</span>
+        </div>
+        <p class="reward-store-sub">Kiyu can redeem his earned stars for fun treats and family adventures!</p>
+        
+        <div class="rewards-grid" id="rewardsGrid">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Graphs & Visual Progress Analytics -->
     <section id="graphsSection" class="section-container">
       <div class="section-heading-bar">
         <h3>📊 Visual Progress & Graphs</h3>
@@ -225,7 +336,7 @@
       </div>
     </section>
 
-    <!-- SECTION: Trophy Cabinet & Milestones -->
+    <!-- SECTION 6: Trophy Cabinet & Milestones -->
     <section id="badgesSection" class="section-container">
       <div class="section-heading-bar">
         <h3>🏆 Trophy Cabinet & Milestones</h3>
@@ -236,13 +347,61 @@
       </div>
     </section>
 
-    <!-- Telegram Action Bar at bottom -->
+    <!-- Telegram Family Sync Guidance & Action Bar -->
     <footer class="app-footer">
+      <div class="telegram-command-tip">
+        <strong>💡 Family Sync in Telegram Group:</strong>
+        <p>Mom & Dad can reply in Telegram: <code>/done 1</code>, <code>/cry sleepy</code>, <code>/water</code>, or <code>/progress</code></p>
+      </div>
       <button id="telegramShareActionBtn" class="primary-action-btn">
         <span>🚀 Share Daily Progress to Telegram</span>
       </button>
       <p class="footer-note">Synced with Kiyu's Telegram Bot • Updated automatically</p>
     </footer>
+  </div>
+
+  <!-- Modal for Logging Cry Moment -->
+  <div class="modal-overlay" id="cryReasonModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>😭 Log Cry Moment</h3>
+        <button class="modal-close" id="closeCryModalBtn">&times;</button>
+      </div>
+      <p style="font-size:0.82rem; color:#636E72; margin-top:-8px;">What made Kiyu feel upset or tearful?</p>
+      <div class="cry-reason-grid">
+        <button class="reason-btn" data-reason="Sleepy / Tired">
+          <span class="reason-icon">🥱</span>
+          <span>Sleepy / Tired</span>
+        </button>
+        <button class="reason-btn" data-reason="Hungry / Food">
+          <span class="reason-icon">🥦</span>
+          <span>Hungry / Food</span>
+        </button>
+        <button class="reason-btn" data-reason="Wanted Toy / Sharing">
+          <span class="reason-icon">🧸</span>
+          <span>Wanted Toy</span>
+        </button>
+        <button class="reason-btn" data-reason="Ouchie / Hurt">
+          <span class="reason-icon">🤕</span>
+          <span>Ouchie / Hurt</span>
+        </button>
+        <button class="reason-btn" data-reason="Bedtime Resistance">
+          <span class="reason-icon">🌙</span>
+          <span>Bedtime</span>
+        </button>
+        <button class="reason-btn" data-reason="Tantrum / Transition">
+          <span class="reason-icon">💔</span>
+          <span>Tantrum / Other</span>
+        </button>
+      </div>
+      <div class="form-group" style="margin-top:10px;">
+        <label>Optional Note:</label>
+        <input type="text" id="customCryNote" placeholder="e.g. wanted to keep playing outside...">
+      </div>
+      <button id="submitCryBtn" class="modal-submit-btn" style="background:linear-gradient(135deg, #FF7675, #D63031);">
+        Save Cry Log 📝
+      </button>
+    </div>
   </div>
 
   <!-- Modal for Adding Custom Activity -->

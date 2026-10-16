@@ -69,6 +69,9 @@ jobs:
           DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
         run: |
           chmod +x scripts/*.sh
+          echo "🔄 Syncing Telegram family commands..."
+          bash scripts/bot_sync.sh || true
+          
           if [ "${{ steps.slot.outputs.slot }}" = "summary" ]; then
             echo "📊 Running daily progress report card..."
             bash scripts/send_daily_summary.sh
@@ -82,7 +85,7 @@ jobs:
         run: |
           git config user.name "Kiyu Planner Bot"
           git config user.email "bot@kiyu-planner.local"
-          git add data/history.json data/tracker.json docs/data/tracker.json
+          git add data/history.json data/tracker.json docs/data/tracker.json data/.telegram_offset || true
           if ! git diff --cached --quiet; then
             git commit -m "📋 Update activity history and progress tracker [skip ci]"
             git pull --rebase origin main || true

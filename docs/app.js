@@ -1,5 +1,7 @@
 /**
- * 🧒 Kiyu's Daily Activity Tracker & Telegram Mini App Logic
+ * 🧒 Kiyu's Daily Activity Tracker V2 Logic
+ * Includes: Real photo showcase, Cry Baby / tears tracker,
+ * Milk & water hydration, Star Reward Store, and Telegram family sync.
  */
 
 // ─── Constants & Configuration ────────────────────────────────
@@ -22,7 +24,7 @@ const CATEGORY_LABELS = {
   helping: '🤝 Helping & Kindness'
 };
 
-// ─── State ───────────────────────────────────────────────────
+// ─── App State ────────────────────────────────────────────────
 let appState = {
   date: getTodayIST(),
   stars: 0,
@@ -33,8 +35,18 @@ let appState = {
     afternoon: [],
     evening: []
   },
-  history: {}
+  cries: [],
+  water_glasses: 0,
+  milk_glasses: 0,
+  rewards: [
+    { id: 'rew_1', title: 'Favorite Storytime', emoji: '📖', stars: 5, unlocked: false },
+    { id: 'rew_2', title: 'Playground Trip', emoji: '🛝', stars: 15, unlocked: false },
+    { id: 'rew_3', title: 'Yummy Ice Cream', emoji: '🍦', stars: 25, unlocked: false },
+    { id: 'rew_4', title: 'New Plushie Friend', emoji: '🧸', stars: 50, unlocked: false }
+  ]
 };
+
+let selectedCryReason = "Sleepy / Tired";
 
 // ─── Telegram WebApp Setup ───────────────────────────────────
 const tg = window.Telegram?.WebApp;
@@ -119,6 +131,9 @@ async function initData() {
   const savedState = localStorage.getItem(`kiyu_tracker_${appState.date}`);
   const savedStars = localStorage.getItem('kiyu_total_stars');
   const savedStreak = localStorage.getItem('kiyu_streak_days');
+  const savedCries = localStorage.getItem(`kiyu_cries_${appState.date}`);
+  const savedWater = localStorage.getItem(`kiyu_water_${appState.date}`);
+  const savedMilk = localStorage.getItem(`kiyu_milk_${appState.date}`);
   const soundPref = localStorage.getItem('kiyu_sound_pref');
 
   if (soundPref !== null) {
@@ -126,8 +141,13 @@ async function initData() {
     updateSoundButton();
   }
 
-  if (savedStars) appState.stars = parseInt(savedStars, 10);
-  if (savedStreak) appState.streak = parseInt(savedStreak, 10);
+  if (savedStars !== null) appState.stars = parseInt(savedStars, 10);
+  if (savedStreak !== null) appState.streak = parseInt(savedStreak, 10);
+  if (savedCries !== null) {
+    try { appState.cries = JSON.parse(savedCries); } catch (e) {}
+  }
+  if (savedWater !== null) appState.water_glasses = parseInt(savedWater, 10);
+  if (savedMilk !== null) appState.milk_glasses = parseInt(savedMilk, 10);
 
   // 2. Fetch server-side tracker.json
   let serverActivities = null;
@@ -137,9 +157,19 @@ async function initData() {
       const data = await res.json();
       if (data.history && data.history[appState.date]) {
         serverActivities = data.history[appState.date];
+        if (serverActivities.cries && appState.cries.length === 0) {
+          appState.cries = serverActivities.cries;
+        }
+        if (serverActivities.water_glasses !== undefined && savedWater === null) {
+          appState.water_glasses = serverActivities.water_glasses;
+        }
+        if (serverActivities.milk_glasses !== undefined && savedMilk === null) {
+          appState.milk_glasses = serverActivities.milk_glasses;
+        }
       }
-      if (data.total_stars && !savedStars) appState.stars = data.total_stars;
-      if (data.streak_days && !savedStreak) appState.streak = data.streak_days;
+      if (data.total_stars !== undefined && savedStars === null) appState.stars = data.total_stars;
+      if (data.streak_days !== undefined && savedStreak === null) appState.streak = data.streak_days;
+      if (data.rewards) appState.rewards = data.rewards;
     }
   } catch (e) {
     console.log("Could not load data/tracker.json:", e);
@@ -150,7 +180,6 @@ async function initData() {
     try {
       const parsed = JSON.parse(savedState);
       appState.activities = parsed;
-      // If serverActivities has items for afternoon/evening not yet in localStorage, merge them
       if (serverActivities) {
         ['morning', 'afternoon', 'evening'].forEach(slot => {
           if (serverActivities[slot] && (!appState.activities[slot] || appState.activities[slot].length === 0)) {
@@ -162,7 +191,6 @@ async function initData() {
   } else if (serverActivities) {
     appState.activities = serverActivities;
   } else {
-    // Friendly fallback defaults
     appState.activities = getDefaultActivities();
   }
 
@@ -217,6 +245,9 @@ function persistState() {
   localStorage.setItem(`kiyu_tracker_${appState.date}`, JSON.stringify(appState.activities));
   localStorage.setItem('kiyu_total_stars', appState.stars);
   localStorage.setItem('kiyu_streak_days', appState.streak);
+  localStorage.setItem(`kiyu_cries_${appState.date}`, JSON.stringify(appState.cries));
+  localStorage.setItem(`kiyu_water_${appState.date}`, appState.water_glasses);
+  localStorage.setItem(`kiyu_milk_${appState.date}`, appState.milk_glasses);
 }
 
 // ─── Rendering UI ────────────────────────────────────────────
@@ -226,6 +257,9 @@ function renderAll() {
   renderSlotList('evening', 'eveningList', 'eveningCounter');
 
   updateProgressRingAndStats();
+  renderCryTracker();
+  renderHydration();
+  renderRewards();
   renderStreakGrid();
   renderTrophies();
 }
@@ -288,7 +322,6 @@ function toggleActivity(slotKey, index) {
     triggerHaptic('success');
     playCelebrationSound();
 
-    // Trigger Confetti Burst
     if (window.confetti) {
       window.confetti({
         particleCount: 45,
@@ -308,7 +341,6 @@ function toggleActivity(slotKey, index) {
   renderAll();
   updateCharts();
 
-  // Check 100% completion celebration
   const allActivities = [
     ...(appState.activities.morning || []),
     ...(appState.activities.afternoon || []),
@@ -347,7 +379,6 @@ function updateProgressRingAndStats() {
   const completed = allActivities.filter(a => a.completed).length;
   const percent = total > 0 ? Math.round((completed / total) * 100) : 0;
 
-  // Update ring stroke
   const ring = document.getElementById('progressCircle');
   if (ring) {
     const offset = CIRCLE_CIRCUMFERENCE - (percent / 100) * CIRCLE_CIRCUMFERENCE;
@@ -362,7 +393,6 @@ function updateProgressRingAndStats() {
   const quickBar = document.getElementById('quickProgressBar');
   if (quickBar) quickBar.style.width = `${percent}%`;
 
-  // Motivational quote logic
   const quoteEl = document.getElementById('heroMotivationalQuote');
   const subEl = document.getElementById('heroMotivationalSub');
   const ringSub = document.getElementById('ringSubText');
@@ -386,6 +416,137 @@ function updateProgressRingAndStats() {
   }
 }
 
+// ─── Cry Baby & Mood Tracker Logic ───────────────────────────
+function renderCryTracker() {
+  const cryCount = appState.cries.length;
+  const countEl = document.getElementById('cryCountDisplay');
+  const iconEl = document.getElementById('cryStatIcon');
+  const badgeEl = document.getElementById('cryStatusBadge');
+  const listEl = document.getElementById('cryLogList');
+
+  if (countEl) countEl.textContent = cryCount;
+
+  if (cryCount === 0) {
+    if (iconEl) iconEl.textContent = "😇";
+    if (badgeEl) {
+      badgeEl.className = "cry-status-badge";
+      badgeEl.textContent = "😇 Tear-Free Angel!";
+    }
+    if (listEl) {
+      listEl.innerHTML = `<div class="empty-cry-msg">No cries logged today! Kiyu is being a superstar champion! 🌟</div>`;
+    }
+  } else {
+    if (iconEl) iconEl.textContent = "🥺";
+    if (badgeEl) {
+      badgeEl.className = "cry-status-badge has-cries";
+      badgeEl.textContent = `${cryCount} ${cryCount === 1 ? 'Cry Moment' : 'Cry Moments'}`;
+    }
+    if (listEl) {
+      listEl.innerHTML = appState.cries.map(c => `
+        <div class="cry-log-item">
+          <div class="cry-log-left">
+            <span>😭</span>
+            <span class="cry-reason-tag">${escapeHTML(c.reason)}</span>
+            ${c.note ? `<span style="color:#64748B;">("${escapeHTML(c.note)}")</span>` : ''}
+          </div>
+          <span class="cry-time-tag">${c.time}</span>
+        </div>
+      `).join('');
+    }
+  }
+}
+
+function logCry(reason, note = '') {
+  const time = new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+  appState.cries.unshift({
+    id: `cry_${Date.now()}`,
+    time,
+    reason,
+    note
+  });
+  persistState();
+  renderCryTracker();
+  triggerHaptic('medium');
+  showToast(`😭 Logged cry moment: ${reason}`);
+}
+
+function markCalm() {
+  appState.stars += 1;
+  persistState();
+  renderAll();
+  triggerHaptic('success');
+  playCelebrationSound();
+  if (window.confetti) {
+    window.confetti({ particleCount: 25, spread: 50 });
+  }
+  showToast(`😊 Calm & happy hour logged! (+1 ⭐)`);
+}
+
+// ─── Hydration Tracker (Milk & Water) ─────────────────────────
+function renderHydration() {
+  const milkEl = document.getElementById('milkCount');
+  const waterEl = document.getElementById('waterCount');
+  if (milkEl) milkEl.textContent = `${appState.milk_glasses} / 2`;
+  if (waterEl) waterEl.textContent = `${appState.water_glasses} / 5`;
+}
+
+function updateMilk(delta) {
+  appState.milk_glasses = Math.max(0, appState.milk_glasses + delta);
+  if (delta > 0) {
+    appState.stars += 1;
+    triggerHaptic('success');
+    showToast(`🥛 Milk glass logged! (+1 ⭐)`);
+  }
+  persistState();
+  renderAll();
+}
+
+function updateWater(delta) {
+  appState.water_glasses = Math.max(0, appState.water_glasses + delta);
+  if (delta > 0) {
+    triggerHaptic('light');
+    showToast(`💧 Water glass logged! Stay healthy, Kiyu!`);
+  }
+  persistState();
+  renderAll();
+}
+
+// ─── Reward Store (Star Shop) ────────────────────────────────
+function renderRewards() {
+  const grid = document.getElementById('rewardsGrid');
+  const badge = document.getElementById('storeBalanceBadge');
+  if (badge) badge.textContent = `⭐ ${appState.stars} Stars Available`;
+  if (!grid) return;
+
+  grid.innerHTML = appState.rewards.map(r => {
+    const canClaim = appState.stars >= r.stars;
+    return `
+      <div class="reward-item ${canClaim ? 'claimable' : ''}">
+        <span class="reward-emoji">${r.emoji}</span>
+        <h4 class="reward-title">${escapeHTML(r.title)}</h4>
+        <span class="reward-cost">⭐ ${r.stars} Stars</span>
+        <button class="reward-claim-btn" onclick="claimReward('${r.id}', ${r.stars})" ${canClaim ? '' : 'disabled'}>
+          ${canClaim ? 'Claim Treat! 🎉' : `Need ${r.stars - appState.stars} more`}
+        </button>
+      </div>
+    `;
+  }).join('');
+}
+
+window.claimReward = function(rewardId, cost) {
+  if (appState.stars < cost) return;
+  appState.stars -= cost;
+  persistState();
+  renderAll();
+  triggerHaptic('success');
+  playCelebrationSound();
+  if (window.confetti) {
+    window.confetti({ particleCount: 60, spread: 80 });
+  }
+  const reward = appState.rewards.find(r => r.id === rewardId);
+  showToast(`🎉 Reward Claimed: "${reward.title}"! Enjoy, Kiyu!`);
+};
+
 // ─── Analytics & Charts (Chart.js) ───────────────────────────
 let weeklyChart = null;
 let categoryChart = null;
@@ -402,7 +563,7 @@ function initCharts() {
         datasets: [
           {
             label: 'Completed',
-            data: [7, 8, 6, 9, getCompletedCount(), 0, 0],
+            data: [0, 0, 0, 0, getCompletedCount(), 0, 0],
             backgroundColor: '#1DD1A1',
             borderRadius: 8,
             borderSkipped: false
@@ -543,10 +704,10 @@ function renderStreakGrid() {
   const grid = document.getElementById('streakGrid');
   if (!grid) return;
   const days = [
-    { name: 'Mon', completed: true, val: '8/9' },
-    { name: 'Tue', completed: true, val: '7/9' },
-    { name: 'Wed', completed: true, val: '9/9' },
-    { name: 'Thu', completed: true, val: '8/9' },
+    { name: 'Mon', completed: false, val: '-' },
+    { name: 'Tue', completed: false, val: '-' },
+    { name: 'Wed', completed: false, val: '-' },
+    { name: 'Thu', completed: false, val: '-' },
     { name: 'Fri', completed: getCompletedCount() > 0, val: `${getCompletedCount()}/${getTotalCount()}` },
     { name: 'Sat', completed: false, val: 'Pending' },
     { name: 'Sun', completed: false, val: 'Pending' }
@@ -569,8 +730,16 @@ function renderTrophies() {
   const morningDone = (appState.activities.morning || []).every(a => a.completed) && (appState.activities.morning || []).length > 0;
   const creativeCount = getCategoryBreakdown()[1];
   const perfectDay = getCompletedCount() === getTotalCount() && getTotalCount() > 0;
+  const tearFree = appState.cries.length === 0;
 
   const trophies = [
+    {
+      id: 'tear_free',
+      badge: '😇',
+      title: 'Tear-Free Champion',
+      desc: 'Spent the whole day calm and happy with zero tears',
+      unlocked: tearFree
+    },
     {
       id: 'early_bird',
       badge: '🪥',
@@ -584,13 +753,6 @@ function renderTrophies() {
       title: 'Little Picasso',
       desc: 'Finished coloring, drawing or art fun',
       unlocked: creativeCount >= 2
-    },
-    {
-      id: 'streak_master',
-      badge: '🔥',
-      title: 'Streak Master',
-      desc: 'Maintained activity tracking for 3+ days',
-      unlocked: appState.streak >= 1
     },
     {
       id: 'superstar',
@@ -619,35 +781,28 @@ function generateTelegramSummary() {
   const completed = getCompletedCount();
   const percent = Math.round((completed / total) * 100);
 
-  // Unicode Progress Bar
   const filledBlocks = Math.round((percent / 100) * 10);
   const emptyBlocks = 10 - filledBlocks;
   const progressBar = '█'.repeat(filledBlocks) + '░'.repeat(emptyBlocks);
 
   const dateFormatted = formatDisplayDate(appState.date);
-
-  const morningStats = `${(appState.activities.morning || []).filter(a => a.completed).length}/${(appState.activities.morning || []).length}`;
-  const afternoonStats = `${(appState.activities.afternoon || []).filter(a => a.completed).length}/${(appState.activities.afternoon || []).length}`;
-  const eveningStats = `${(appState.activities.evening || []).filter(a => a.completed).length}/${(appState.activities.evening || []).length}`;
+  const cryText = appState.cries.length === 0 ? "0 (Tear-Free Angel! 😇)" : `${appState.cries.length} times logged`;
 
   return `🧒 Kiyu's Daily Progress Update
 📅 ${dateFormatted}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Progress: [${progressBar}] ${percent}% (${completed}/${total} Done)
-⭐ Stars earned: ${appState.stars}
-🔥 Day streak: ${appState.streak} Days
+📊 Progress: [${progressBar}] ${percent}% (${completed}/${total} Done)
+⭐ Stars: ${appState.stars} Collected
+🔥 Day Streak: ${appState.streak} Days
+😭 Tears Today: ${cryText}
+🥛 Milk: ${appState.milk_glasses}/2 glasses | 💧 Water: ${appState.water_glasses}/5 glasses
 
-🌞 Morning: ${morningStats} Done
-☀️ Afternoon: ${afternoonStats} Done
-🌙 Evening: ${eveningStats} Done
-
-🌟 Great job today, Kiyu! Keep shining! 💛`;
+🌟 Great job today, Kiyu! Teddy & Tiger Cat are cheering for you! 🧸🐱`;
 }
 
 function shareToTelegram() {
   const summary = generateTelegramSummary();
 
-  // If inside Telegram WebApp
   if (tg && tg.sendData) {
     try {
       tg.sendData(JSON.stringify({
@@ -660,8 +815,7 @@ function shareToTelegram() {
     } catch (e) {}
   }
 
-  // Also open share URL
-  const shareUrl = `https://t.me/share/url?url=${encodeURIComponent('https://s1reyash.github.io/kiyu/')}&text=${encodeURIComponent(summary)}`;
+  const shareUrl = `https://t.me/share/url?url=${encodeURIComponent('https://s1reyash.github.io/kiyu/docs/')}&text=${encodeURIComponent(summary)}`;
   window.open(shareUrl, '_blank');
   showToast("📋 Report copied & opened in Telegram!");
 }
@@ -702,25 +856,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const tab = btn.getAttribute('data-tab');
       const tasksSec = document.getElementById('tasksSection');
+      const crySec = document.getElementById('crySection');
+      const hydrateSec = document.getElementById('hydrationSection');
       const graphsSec = document.getElementById('graphsSection');
+      const rewardsSec = document.getElementById('rewardsSection');
       const badgesSec = document.getElementById('badgesSection');
 
       if (tab === 'allTab') {
         tasksSec.style.display = 'flex';
+        crySec.style.display = 'flex';
+        hydrateSec.style.display = 'flex';
         graphsSec.style.display = 'flex';
+        rewardsSec.style.display = 'flex';
         badgesSec.style.display = 'flex';
       } else if (tab === 'checklistTab') {
         tasksSec.style.display = 'flex';
+        crySec.style.display = 'none';
+        hydrateSec.style.display = 'none';
         graphsSec.style.display = 'none';
+        rewardsSec.style.display = 'none';
+        badgesSec.style.display = 'none';
+      } else if (tab === 'cryTrackerTab') {
+        tasksSec.style.display = 'none';
+        crySec.style.display = 'flex';
+        hydrateSec.style.display = 'none';
+        graphsSec.style.display = 'none';
+        rewardsSec.style.display = 'none';
         badgesSec.style.display = 'none';
       } else if (tab === 'analyticsTab') {
         tasksSec.style.display = 'none';
+        crySec.style.display = 'none';
+        hydrateSec.style.display = 'none';
         graphsSec.style.display = 'flex';
+        rewardsSec.style.display = 'none';
         badgesSec.style.display = 'none';
-      } else if (tab === 'trophyTab') {
+      } else if (tab === 'rewardTab') {
         tasksSec.style.display = 'none';
+        crySec.style.display = 'none';
+        hydrateSec.style.display = 'none';
         graphsSec.style.display = 'none';
-        badgesSec.style.display = 'flex';
+        rewardsSec.style.display = 'flex';
+        badgesSec.style.display = 'none';
       }
 
       setTimeout(updateCharts, 50);
@@ -739,6 +915,39 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('shareTelegramBtn')?.addEventListener('click', shareToTelegram);
   document.getElementById('telegramShareActionBtn')?.addEventListener('click', shareToTelegram);
 
+  // Cry Modal controls
+  const cryModal = document.getElementById('cryReasonModal');
+  document.getElementById('logCryBtn')?.addEventListener('click', () => {
+    cryModal.classList.add('open');
+  });
+
+  document.getElementById('closeCryModalBtn')?.addEventListener('click', () => {
+    cryModal.classList.remove('open');
+  });
+
+  document.querySelectorAll('.reason-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.reason-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedCryReason = btn.getAttribute('data-reason');
+    });
+  });
+
+  document.getElementById('submitCryBtn')?.addEventListener('click', () => {
+    const note = document.getElementById('customCryNote').value.trim();
+    logCry(selectedCryReason, note);
+    cryModal.classList.remove('open');
+    document.getElementById('customCryNote').value = '';
+  });
+
+  document.getElementById('markCalmBtn')?.addEventListener('click', markCalm);
+
+  // Hydration buttons
+  document.getElementById('plusMilkBtn')?.addEventListener('click', () => updateMilk(1));
+  document.getElementById('minusMilkBtn')?.addEventListener('click', () => updateMilk(-1));
+  document.getElementById('plusWaterBtn')?.addEventListener('click', () => updateWater(1));
+  document.getElementById('minusWaterBtn')?.addEventListener('click', () => updateWater(-1));
+
   // Custom Activity Modal
   const modal = document.getElementById('customActivityModal');
   document.getElementById('addCustomActivityBtn')?.addEventListener('click', () => {
@@ -751,6 +960,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   modal?.addEventListener('click', (e) => {
     if (e.target === modal) modal.classList.remove('open');
+    if (e.target === cryModal) cryModal.classList.remove('open');
   });
 
   document.getElementById('customActivityForm')?.addEventListener('submit', (e) => {
