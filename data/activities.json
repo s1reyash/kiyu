@@ -1,0 +1,120 @@
+{
+  "weekday": {
+    "morning": {
+      "emoji": "🌞",
+      "greeting": "Good Morning",
+      "title": "Morning Routine",
+      "sign_off": "Have a wonderful day! 💛",
+      "activities": [
+        { "name": "Brush teeth & wash face", "emoji": "🪥" },
+        { "name": "Pick today's outfit", "emoji": "👕" },
+        { "name": "Breakfast helper", "emoji": "🥣" },
+        { "name": "Water the plants", "emoji": "🌱" },
+        { "name": "Morning stretches", "emoji": "🤸" },
+        { "name": "Sing a nursery rhyme", "emoji": "🎵" },
+        { "name": "Feed the birds", "emoji": "🐦" },
+        { "name": "Pack school bag together", "emoji": "🎒" },
+        { "name": "Draw a smiley face", "emoji": "😊" },
+        { "name": "Count to 10 together", "emoji": "🔢" }
+      ]
+    },
+    "afternoon": {
+      "emoji": "☀️",
+      "greeting": "Welcome Back from School",
+      "title": "Afternoon Play",
+      "sign_off": "Enjoy your playtime! 🎉",
+      "activities": [
+        { "name": "Building with blocks", "emoji": "🧱" },
+        { "name": "Coloring & drawing", "emoji": "🎨" },
+        { "name": "Play-dough fun", "emoji": "🫧" },
+        { "name": "Outdoor cycling", "emoji": "🚲" },
+        { "name": "Playground time", "emoji": "🛝" },
+        { "name": "Puzzle solving", "emoji": "🧩" },
+        { "name": "Dance party", "emoji": "💃" },
+        { "name": "Ball games", "emoji": "⚽" },
+        { "name": "Sand play", "emoji": "🏖️" },
+        { "name": "Pretend cooking", "emoji": "🍳" },
+        { "name": "Animal figures play", "emoji": "🦕" },
+        { "name": "Treasure hunt", "emoji": "🗺️" },
+        { "name": "Balloon games", "emoji": "🎈" },
+        { "name": "Car & truck play", "emoji": "🚗" }
+      ]
+    },
+    "evening": {
+      "emoji": "🌙",
+      "greeting": "Good Evening",
+      "title": "Evening Wind-Down",
+      "sign_off": "Sweet dreams tonight! 🌙",
+      "activities": [
+        { "name": "Storytime with family", "emoji": "📚" },
+        { "name": "Gentle coloring", "emoji": "🖍️" },
+        { "name": "Sticker activity", "emoji": "⭐" },
+        { "name": "Watch a short cartoon", "emoji": "📺" },
+        { "name": "Cuddle & chat about the day", "emoji": "🤗" },
+        { "name": "Lullaby singing", "emoji": "🎶" },
+        { "name": "Look at family photos", "emoji": "📸" },
+        { "name": "Soft toy tea party", "emoji": "🧸" },
+        { "name": "Bedtime yoga", "emoji": "🧘" },
+        { "name": "Shadow play with flashlight", "emoji": "🔦" }
+      ]
+    }
+  },
+  "weekend": {
+    "morning": {
+      "emoji": "🌈",
+      "greeting": "Happy Weekend Morning",
+      "title": "Weekend Fun",
+      "sign_off": "Let's make today amazing! 🌟",
+      "activities": [
+        { "name": "Pancake making helper", "emoji": "🥞" },
+        { "name": "Garden exploration", "emoji": "🌻" },
+        { "name": "Painting with fingers", "emoji": "🎨" },
+        { "name": "Build a blanket fort", "emoji": "🏰" },
+        { "name": "Dance to favorite songs", "emoji": "🎵" },
+        { "name": "Baking cookies helper", "emoji": "🍪" },
+        { "name": "Bubble blowing", "emoji": "🫧" },
+        { "name": "Nature walk", "emoji": "🌿" },
+        { "name": "Water play", "emoji": "💧" },
+        { "name": "Paper airplane making", "emoji": "✈️" }
+      ]
+    },
+    "afternoon": {
+      "emoji": "🌤️",
+      "greeting": "Weekend Afternoon",
+      "title": "Adventure Time",
+      "sign_off": "Adventure awaits! 🚀",
+      "activities": [
+        { "name": "Visit the park", "emoji": "🌳" },
+        { "name": "Picnic in the garden", "emoji": "🧺" },
+        { "name": "Splash in puddles", "emoji": "💦" },
+        { "name": "Kite flying", "emoji": "🪁" },
+        { "name": "Visit grandparents", "emoji": "👴" },
+        { "name": "Zoo animal book reading", "emoji": "🦁" },
+        { "name": "Obstacle course at home", "emoji": "🏃" },
+        { "name": "Craft time (paper cutting)", "emoji": "✂️" },
+        { "name": "Music & instruments", "emoji": "🥁" },
+        { "name": "Ice cream outing", "emoji": "🍦" },
+        { "name": "Swimming pool", "emoji": "🏊" },
+        { "name": "Ride-on toy time", "emoji": "🛴" }
+      ]
+    },
+    "evening": {
+      "emoji": "✨",
+      "greeting": "Weekend Evening",
+      "title": "Cozy Time",
+      "sign_off": "What a wonderful weekend! 💫",
+      "activities": [
+        { "name": "Family movie night", "emoji": "🎬" },
+        { "name": "Star gazing", "emoji": "⭐" },
+        { "name": "Board game with family", "emoji": "🎲" },
+        { "name": "Puppet show", "emoji": "🎭" },
+        { "name": "Drawing the day's adventure", "emoji": "✏️" },
+        { "name": "Gentle music listening", "emoji": "🎧" },
+        { "name": "Build something with Duplo", "emoji": "🧱" },
+        { "name": "Goodnight storytime", "emoji": "📖" },
+        { "name": "Warm milk & chat", "emoji": "🥛" },
+        { "name": "Counting stars from window", "emoji": "🌟" }
+      ]
+    }
+  }
+}
