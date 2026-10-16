@@ -30,23 +30,23 @@
       "afternoon": [
         {
           "id": "2026-10-16-afternoon-0",
-          "name": "Coloring & drawing",
-          "emoji": "🎨",
+          "name": "Ball games",
+          "emoji": "⚽",
           "category": "creative",
           "completed": false
         },
         {
           "id": "2026-10-16-afternoon-1",
-          "name": "Balloon games",
-          "emoji": "🎈",
+          "name": "Playground time",
+          "emoji": "🛝",
           "category": "creative",
           "completed": false
         },
         {
           "id": "2026-10-16-afternoon-2",
-          "name": "Outdoor cycling",
-          "emoji": "🚲",
-          "category": "physical",
+          "name": "Pretend cooking",
+          "emoji": "🍳",
+          "category": "creative",
           "completed": false
         }
       ],

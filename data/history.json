@@ -1,4 +1,20 @@
 {
   "last_updated": "2026-10-16",
-  "recent_activities": []
+  "recent_activities": [
+    {
+      "name": "Ball games",
+      "date": "2026-10-16",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Playground time",
+      "date": "2026-10-16",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Pretend cooking",
+      "date": "2026-10-16",
+      "slot": "afternoon"
+    }
+  ]
 }
