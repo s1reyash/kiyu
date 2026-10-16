@@ -193,7 +193,7 @@ echo "$MESSAGE"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 # ─── Inline Keyboard Markup ──────────────────────────────────
-DASHBOARD_URL="https://s1reyash.github.io/kiyu/"
+DASHBOARD_URL="https://s1reyash.github.io/kiyu/docs/"
 REPLY_MARKUP=$(jq -c -n --arg url "$DASHBOARD_URL" '{
   "inline_keyboard": [
     [

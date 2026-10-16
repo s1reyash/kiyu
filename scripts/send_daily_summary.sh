@@ -11,7 +11,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_DIR="$(dirname "$SCRIPT_DIR")"
 TRACKER_FILE="$REPO_DIR/data/tracker.json"
 HISTORY_FILE="$REPO_DIR/data/history.json"
-DASHBOARD_URL="https://s1reyash.github.io/kiyu/"
+DASHBOARD_URL="https://s1reyash.github.io/kiyu/docs/"
 KID_NAME="Kiyu"
 
 # Environment variables
