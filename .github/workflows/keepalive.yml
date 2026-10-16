@@ -1,0 +1,41 @@
+name: ♻️ Keep Alive
+
+# GitHub disables cron schedules on repos with no activity for 60 days.
+# This workflow runs once a month to keep the repo "active" and prevent
+# the daily planner cron schedules from being disabled.
+
+on:
+  schedule:
+    # Run on the 1st of every month at 00:00 UTC
+    - cron: '0 0 1 * *'
+  workflow_dispatch:
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Keep workflows alive
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // Re-enable all workflows in case GitHub disabled them
+            const workflows = await github.rest.actions.listRepoWorkflows({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            });
+            
+            for (const wf of workflows.data.workflows) {
+              if (wf.state === 'disabled_inactivity') {
+                console.log(`Re-enabling workflow: ${wf.name} (${wf.id})`);
+                await github.rest.actions.enableWorkflow({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  workflow_id: wf.id,
+                });
+              } else {
+                console.log(`Workflow already active: ${wf.name} (${wf.state})`);
+              }
+            }
+            console.log('✅ All workflows checked and enabled!');
