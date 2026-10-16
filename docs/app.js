@@ -150,6 +150,14 @@ async function initData() {
     try {
       const parsed = JSON.parse(savedState);
       appState.activities = parsed;
+      // If serverActivities has items for afternoon/evening not yet in localStorage, merge them
+      if (serverActivities) {
+        ['morning', 'afternoon', 'evening'].forEach(slot => {
+          if (serverActivities[slot] && (!appState.activities[slot] || appState.activities[slot].length === 0)) {
+            appState.activities[slot] = serverActivities[slot];
+          }
+        });
+      }
     } catch (e) {}
   } else if (serverActivities) {
     appState.activities = serverActivities;
@@ -158,7 +166,7 @@ async function initData() {
     appState.activities = getDefaultActivities();
   }
 
-  // Ensure default structure if slots are empty
+  // Ensure slots exist
   if (!appState.activities.morning || appState.activities.morning.length === 0) {
     appState.activities.morning = [
       { id: 'm1', name: "Breakfast helper", emoji: "🥣", category: "helping", completed: false },
@@ -168,9 +176,9 @@ async function initData() {
   }
   if (!appState.activities.afternoon || appState.activities.afternoon.length === 0) {
     appState.activities.afternoon = [
-      { id: 'a1', name: "Building with blocks", emoji: "🧱", category: "creative", completed: false },
-      { id: 'a2', name: "Coloring & drawing", emoji: "🎨", category: "creative", completed: false },
-      { id: 'a3', name: "Outdoor playground", emoji: "🛝", category: "physical", completed: false }
+      { id: 'a1', name: "Coloring & drawing", emoji: "🎨", category: "creative", completed: false },
+      { id: 'a2', name: "Balloon games", emoji: "🎈", category: "creative", completed: false },
+      { id: 'a3', name: "Outdoor cycling", emoji: "🚲", category: "physical", completed: false }
     ];
   }
   if (!appState.activities.evening || appState.activities.evening.length === 0) {
@@ -193,9 +201,9 @@ function getDefaultActivities() {
       { id: 'm3', name: "Water the plants", emoji: "🌱", category: "routine", completed: false }
     ],
     afternoon: [
-      { id: 'a1', name: "Building with blocks", emoji: "🧱", category: "creative", completed: false },
-      { id: 'a2', name: "Coloring & drawing", emoji: "🎨", category: "creative", completed: false },
-      { id: 'a3', name: "Outdoor playground", emoji: "🛝", category: "physical", completed: false }
+      { id: 'a1', name: "Coloring & drawing", emoji: "🎨", category: "creative", completed: false },
+      { id: 'a2', name: "Balloon games", emoji: "🎈", category: "creative", completed: false },
+      { id: 'a3', name: "Outdoor cycling", emoji: "🚲", category: "physical", completed: false }
     ],
     evening: [
       { id: 'e1', name: "Storytime with family", emoji: "📚", category: "learning", completed: false },
@@ -261,9 +269,10 @@ function renderSlotList(slotKey, containerId, counterId) {
           </span>
         </div>
       </div>
-      <div class="checkbox-toggle">
-        <span>✓</span>
-      </div>
+      <button class="status-action-btn ${item.completed ? 'done' : ''}" type="button" aria-label="Toggle completed">
+        <span class="btn-box">${item.completed ? '✓' : ''}</span>
+        <span class="btn-text">${item.completed ? 'Done! ⭐' : 'Tap Done'}</span>
+      </button>
     `;
 
     container.appendChild(itemEl);
@@ -282,16 +291,17 @@ function toggleActivity(slotKey, index) {
     // Trigger Confetti Burst
     if (window.confetti) {
       window.confetti({
-        particleCount: 40,
+        particleCount: 45,
         spread: 60,
         origin: { y: 0.7 },
         colors: ['#FF9F43', '#FF6B6B', '#1DD1A1', '#54A0FF', '#FECA57']
       });
     }
-    showToast(`🌟 Great job! "${item.name}" completed!`);
+    showToast(`🌟 Awesome! "${item.name}" marked complete! (+1 ⭐)`);
   } else {
     appState.stars = Math.max(0, appState.stars - 1);
     triggerHaptic('light');
+    showToast(`Unchecked "${item.name}"`);
   }
 
   persistState();
@@ -312,18 +322,18 @@ function toggleActivity(slotKey, index) {
 
 function celebratePerfectScore() {
   if (window.confetti) {
-    const end = Date.now() + 2000;
+    const end = Date.now() + 2500;
     const interval = setInterval(() => {
       if (Date.now() > end) return clearInterval(interval);
       window.confetti({
-        startVelocity: 30,
+        startVelocity: 35,
         spread: 360,
         ticks: 60,
         origin: { x: Math.random(), y: Math.random() - 0.2 }
       });
     }, 300);
   }
-  showToast("🏆 WOW! Kiyu completed ALL activities today! 🌟");
+  showToast("🏆 WOW! Kiyu completed ALL activities today! Champion status! 🌟");
 }
 
 function updateProgressRingAndStats() {
@@ -360,7 +370,7 @@ function updateProgressRingAndStats() {
   if (percent === 0) {
     ringSub.textContent = "Let's Play!";
     quoteEl.textContent = `Rise and shine, ${KID_NAME}! 🌞`;
-    subEl.textContent = "Start today's fun activities to collect shiny stars!";
+    subEl.textContent = "Tap any activity below to mark it done and earn stars!";
   } else if (percent < 50) {
     ringSub.textContent = "Great Start!";
     quoteEl.textContent = `Off to a flying start! 🚀`;
@@ -456,7 +466,7 @@ function initCharts() {
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        cutout: '72%',
+        cutout: '68%',
         plugins: {
           legend: { display: false },
           tooltip: {
@@ -473,7 +483,6 @@ function initCharts() {
 
 function updateCharts() {
   if (weeklyChart) {
-    // Update Friday (index 4) with live values
     weeklyChart.data.datasets[0].data[4] = getCompletedCount();
     weeklyChart.data.datasets[1].data[4] = getTotalCount();
     weeklyChart.update();
@@ -685,19 +694,36 @@ function updateSoundButton() {
 document.addEventListener('DOMContentLoaded', () => {
   initData();
 
-  // Tab switching
+  // View Filtering Tabs
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-
       btn.classList.add('active');
-      const targetId = btn.getAttribute('data-tab');
-      document.getElementById(targetId)?.classList.add('active');
 
-      if (targetId === 'analyticsTab') {
-        setTimeout(updateCharts, 100);
+      const tab = btn.getAttribute('data-tab');
+      const tasksSec = document.getElementById('tasksSection');
+      const graphsSec = document.getElementById('graphsSection');
+      const badgesSec = document.getElementById('badgesSection');
+
+      if (tab === 'allTab') {
+        tasksSec.style.display = 'flex';
+        graphsSec.style.display = 'flex';
+        badgesSec.style.display = 'flex';
+      } else if (tab === 'checklistTab') {
+        tasksSec.style.display = 'flex';
+        graphsSec.style.display = 'none';
+        badgesSec.style.display = 'none';
+      } else if (tab === 'analyticsTab') {
+        tasksSec.style.display = 'none';
+        graphsSec.style.display = 'flex';
+        badgesSec.style.display = 'none';
+      } else if (tab === 'trophyTab') {
+        tasksSec.style.display = 'none';
+        graphsSec.style.display = 'none';
+        badgesSec.style.display = 'flex';
       }
+
+      setTimeout(updateCharts, 50);
     });
   });
 

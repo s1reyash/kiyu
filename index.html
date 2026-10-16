@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Kiyu's Daily Activity & Progress Tracker</title>
+  
+  <!-- Telegram WebApp SDK -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Chart.js and Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Top Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="avatar-ring">
+          <span class="avatar-emoji">🧒</span>
+          <span class="online-dot"></span>
+        </div>
+        <div class="header-titles">
+          <h1 class="kid-title">Kiyu's Adventure</h1>
+          <p class="current-date" id="displayDate">Loading date...</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <button id="soundToggle" class="icon-btn" title="Toggle Sound">🔊</button>
+        <button id="shareTelegramBtn" class="icon-btn share-btn" title="Share Progress to Telegram">
+          <span>📤</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Quick Stats Bar -->
+    <section class="stats-row">
+      <div class="stat-pill star-pill">
+        <span class="stat-icon bounce">⭐</span>
+        <div class="stat-meta">
+          <span class="stat-val" id="totalStars">0</span>
+          <span class="stat-lbl">Stars</span>
+        </div>
+      </div>
+      <div class="stat-pill streak-pill">
+        <span class="stat-icon flicker">🔥</span>
+        <div class="stat-meta">
+          <span class="stat-val" id="currentStreak">1</span>
+          <span class="stat-lbl">Day Streak</span>
+        </div>
+      </div>
+      <div class="stat-pill score-pill">
+        <span class="stat-icon">🎯</span>
+        <div class="stat-meta">
+          <span class="stat-val" id="completedRatio">0/0</span>
+          <span class="stat-lbl">Completed</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Progress Ring Card -->
+    <section class="hero-progress-card">
+      <div class="progress-ring-container">
+        <svg class="progress-ring" viewBox="0 0 160 160">
+          <defs>
+            <linearGradient id="progressGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FF9F43" />
+              <stop offset="50%" stop-color="#FF6B6B" />
+              <stop offset="100%" stop-color="#1DD1A1" />
+            </linearGradient>
+            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
+          </defs>
+          <circle class="ring-bg" cx="80" cy="80" r="66" />
+          <circle class="ring-fill" id="progressCircle" cx="80" cy="80" r="66" />
+        </svg>
+        <div class="ring-center-content">
+          <span class="ring-percent" id="progressPercentage">0%</span>
+          <span class="ring-sub" id="ringSubText">Let's Play!</span>
+        </div>
+      </div>
+
+      <div class="hero-encouragement">
+        <h2 id="heroMotivationalQuote">Rise and shine, Kiyu! 🌟</h2>
+        <p id="heroMotivationalSub">Tap any activity to mark it complete and earn stars!</p>
+        <div class="quick-progress-bar-wrap">
+          <div class="quick-progress-bar" id="quickProgressBar"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- View Filter Tabs (All Dashboard, Tasks, Graphs, Badges) -->
+    <nav class="view-tabs">
+      <button class="tab-btn active" data-tab="allTab">
+        <span class="tab-icon">🌟</span>
+        <span>Dashboard</span>
+      </button>
+      <button class="tab-btn" data-tab="checklistTab">
+        <span class="tab-icon">📋</span>
+        <span>Checklist</span>
+      </button>
+      <button class="tab-btn" data-tab="analyticsTab">
+        <span class="tab-icon">📊</span>
+        <span>Graphs</span>
+      </button>
+      <button class="tab-btn" data-tab="trophyTab">
+        <span class="tab-icon">🏆</span>
+        <span>Badges</span>
+      </button>
+    </nav>
+
+    <!-- SECTION: Today's Tasks Checklist -->
+    <main id="tasksSection" class="section-container">
+      <div class="section-heading-bar">
+        <h3>📋 Today's Activities</h3>
+        <span class="tap-hint">Tap checkbox to mark done</span>
+      </div>
+
+      <!-- Slot Sections: Morning, Afternoon, Evening -->
+      <section class="slot-card" id="morningSection">
+        <div class="slot-header">
+          <div class="slot-title-wrap">
+            <span class="slot-badge morning-badge">🌞 Morning</span>
+            <h4>Morning Routine</h4>
+          </div>
+          <span class="slot-counter" id="morningCounter">0/3</span>
+        </div>
+        <div class="activity-list" id="morningList">
+          <!-- Activity items inserted by JavaScript -->
+        </div>
+      </section>
+
+      <section class="slot-card" id="afternoonSection">
+        <div class="slot-header">
+          <div class="slot-title-wrap">
+            <span class="slot-badge afternoon-badge">☀️ Afternoon</span>
+            <h4>Afternoon Play</h4>
+          </div>
+          <span class="slot-counter" id="afternoonCounter">0/3</span>
+        </div>
+        <div class="activity-list" id="afternoonList">
+          <!-- Activity items inserted by JavaScript -->
+        </div>
+      </section>
+
+      <section class="slot-card" id="eveningSection">
+        <div class="slot-header">
+          <div class="slot-title-wrap">
+            <span class="slot-badge evening-badge">🌙 Evening</span>
+            <h4>Evening Wind-Down</h4>
+          </div>
+          <span class="slot-counter" id="eveningCounter">0/3</span>
+        </div>
+        <div class="activity-list" id="eveningList">
+          <!-- Activity items inserted by JavaScript -->
+        </div>
+      </section>
+
+      <!-- Add Custom Activity Button -->
+      <div class="add-custom-wrap">
+        <button id="addCustomActivityBtn" class="add-activity-btn">
+          <span>➕ Add Spontaneous Fun Activity</span>
+        </button>
+      </div>
+    </main>
+
+    <!-- SECTION: Graphs & Visual Progress Analytics -->
+    <section id="graphsSection" class="section-container">
+      <div class="section-heading-bar">
+        <h3>📊 Visual Progress & Graphs</h3>
+        <span class="tap-hint">Live updates</span>
+      </div>
+
+      <!-- Weekly Trends Bar Chart -->
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div>
+            <h3>📈 Weekly Progress Bar Graph</h3>
+            <p>Activities completed Monday through Sunday</p>
+          </div>
+          <span class="badge-pill">This Week</span>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="weeklyTrendsChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Category Balance Donut Chart -->
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div>
+            <h3>🎨 Activity Category Balance (Pie / Donut)</h3>
+            <p>Healthy mix of habits, play, creative, & learning</p>
+          </div>
+        </div>
+        <div class="chart-wrapper donut-wrapper">
+          <canvas id="categoryDonutChart"></canvas>
+        </div>
+        <div class="category-legend" id="categoryLegend">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- 7-Day Star Activity Heatmap -->
+      <div class="chart-card heatmap-card">
+        <div class="chart-card-header">
+          <div>
+            <h3>🌟 7-Day Consistency Streak</h3>
+            <p>Track Kiyu's consecutive active days</p>
+          </div>
+        </div>
+        <div class="streak-days-grid" id="streakGrid">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Trophy Cabinet & Milestones -->
+    <section id="badgesSection" class="section-container">
+      <div class="section-heading-bar">
+        <h3>🏆 Trophy Cabinet & Milestones</h3>
+        <span class="tap-hint">Earned achievements</span>
+      </div>
+      <div class="trophies-grid" id="trophiesGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </section>
+
+    <!-- Telegram Action Bar at bottom -->
+    <footer class="app-footer">
+      <button id="telegramShareActionBtn" class="primary-action-btn">
+        <span>🚀 Share Daily Progress to Telegram</span>
+      </button>
+      <p class="footer-note">Synced with Kiyu's Telegram Bot • Updated automatically</p>
+    </footer>
+  </div>
+
+  <!-- Modal for Adding Custom Activity -->
+  <div class="modal-overlay" id="customActivityModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>✨ Add Fun Activity</h3>
+        <button class="modal-close" id="closeModalBtn">&times;</button>
+      </div>
+      <form id="customActivityForm">
+        <div class="form-group">
+          <label>Activity Name</label>
+          <input type="text" id="customName" placeholder="e.g. Visit Grandparents, Finger painting..." required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Emoji</label>
+            <input type="text" id="customEmoji" value="🎨" maxlength="4" style="text-align: center; font-size: 1.4rem;">
+          </div>
+          <div class="form-group flex-1">
+            <label>Time Slot</label>
+            <select id="customSlot">
+              <option value="morning">🌞 Morning</option>
+              <option value="afternoon" selected>☀️ Afternoon</option>
+              <option value="evening">🌙 Evening</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <select id="customCategory">
+            <option value="creative">🎨 Creative & Art</option>
+            <option value="physical">🏃 Active & Physical</option>
+            <option value="learning">📚 Learning & Books</option>
+            <option value="routine">🪥 Routine & Habits</option>
+            <option value="helping">🤝 Helping & Kindness</option>
+          </select>
+        </div>
+        <button type="submit" class="modal-submit-btn">Add to Today's Plan 🌟</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

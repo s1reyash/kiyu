@@ -92,22 +92,26 @@
 
       <div class="hero-encouragement">
         <h2 id="heroMotivationalQuote">Rise and shine, Kiyu! 🌟</h2>
-        <p id="heroMotivationalSub">Mark today's activities as you complete them to earn magical stars!</p>
+        <p id="heroMotivationalSub">Tap any activity to mark it complete and earn stars!</p>
         <div class="quick-progress-bar-wrap">
           <div class="quick-progress-bar" id="quickProgressBar"></div>
         </div>
       </div>
     </section>
 
-    <!-- Navigation Tabs (Today's Checklist / Visual Graphs / Trophy Cabinet) -->
+    <!-- View Filter Tabs (All Dashboard, Tasks, Graphs, Badges) -->
     <nav class="view-tabs">
-      <button class="tab-btn active" data-tab="checklistTab">
+      <button class="tab-btn active" data-tab="allTab">
+        <span class="tab-icon">🌟</span>
+        <span>Dashboard</span>
+      </button>
+      <button class="tab-btn" data-tab="checklistTab">
         <span class="tab-icon">📋</span>
-        <span>Today's Tasks</span>
+        <span>Checklist</span>
       </button>
       <button class="tab-btn" data-tab="analyticsTab">
         <span class="tab-icon">📊</span>
-        <span>Graphs & Charts</span>
+        <span>Graphs</span>
       </button>
       <button class="tab-btn" data-tab="trophyTab">
         <span class="tab-icon">🏆</span>
@@ -115,14 +119,19 @@
       </button>
     </nav>
 
-    <!-- TAB 1: Today's Checklist -->
-    <main id="checklistTab" class="tab-content active">
+    <!-- SECTION: Today's Tasks Checklist -->
+    <main id="tasksSection" class="section-container">
+      <div class="section-heading-bar">
+        <h3>📋 Today's Activities</h3>
+        <span class="tap-hint">Tap checkbox to mark done</span>
+      </div>
+
       <!-- Slot Sections: Morning, Afternoon, Evening -->
       <section class="slot-card" id="morningSection">
         <div class="slot-header">
           <div class="slot-title-wrap">
             <span class="slot-badge morning-badge">🌞 Morning</span>
-            <h3>Morning Routine</h3>
+            <h4>Morning Routine</h4>
           </div>
           <span class="slot-counter" id="morningCounter">0/3</span>
         </div>
@@ -135,7 +144,7 @@
         <div class="slot-header">
           <div class="slot-title-wrap">
             <span class="slot-badge afternoon-badge">☀️ Afternoon</span>
-            <h3>Afternoon Play</h3>
+            <h4>Afternoon Play</h4>
           </div>
           <span class="slot-counter" id="afternoonCounter">0/3</span>
         </div>
@@ -148,7 +157,7 @@
         <div class="slot-header">
           <div class="slot-title-wrap">
             <span class="slot-badge evening-badge">🌙 Evening</span>
-            <h3>Evening Wind-Down</h3>
+            <h4>Evening Wind-Down</h4>
           </div>
           <span class="slot-counter" id="eveningCounter">0/3</span>
         </div>
@@ -165,14 +174,19 @@
       </div>
     </main>
 
-    <!-- TAB 2: Graphs & Visual Progress Analytics -->
-    <section id="analyticsTab" class="tab-content">
+    <!-- SECTION: Graphs & Visual Progress Analytics -->
+    <section id="graphsSection" class="section-container">
+      <div class="section-heading-bar">
+        <h3>📊 Visual Progress & Graphs</h3>
+        <span class="tap-hint">Live updates</span>
+      </div>
+
       <!-- Weekly Trends Bar Chart -->
       <div class="chart-card">
         <div class="chart-card-header">
           <div>
-            <h3>📈 Weekly Progress Trend</h3>
-            <p>Activities completed across the week</p>
+            <h3>📈 Weekly Progress Bar Graph</h3>
+            <p>Activities completed Monday through Sunday</p>
           </div>
           <span class="badge-pill">This Week</span>
         </div>
@@ -185,8 +199,8 @@
       <div class="chart-card">
         <div class="chart-card-header">
           <div>
-            <h3>🎨 Activity Category Balance</h3>
-            <p>Healthy variety across routine, play, learning & creative</p>
+            <h3>🎨 Activity Category Balance (Pie / Donut)</h3>
+            <p>Healthy mix of habits, play, creative, & learning</p>
           </div>
         </div>
         <div class="chart-wrapper donut-wrapper">
@@ -201,8 +215,8 @@
       <div class="chart-card heatmap-card">
         <div class="chart-card-header">
           <div>
-            <h3>🌟 7-Day Consistency</h3>
-            <p>Daily activity completion streak</p>
+            <h3>🌟 7-Day Consistency Streak</h3>
+            <p>Track Kiyu's consecutive active days</p>
           </div>
         </div>
         <div class="streak-days-grid" id="streakGrid">
@@ -211,8 +225,12 @@
       </div>
     </section>
 
-    <!-- TAB 3: Trophy Cabinet & Milestones -->
-    <section id="trophyTab" class="tab-content">
+    <!-- SECTION: Trophy Cabinet & Milestones -->
+    <section id="badgesSection" class="section-container">
+      <div class="section-heading-bar">
+        <h3>🏆 Trophy Cabinet & Milestones</h3>
+        <span class="tap-hint">Earned achievements</span>
+      </div>
       <div class="trophies-grid" id="trophiesGrid">
         <!-- Rendered by JS -->
       </div>
