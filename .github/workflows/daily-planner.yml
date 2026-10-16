@@ -4,12 +4,12 @@ on:
   schedule:
     # 7:00 AM IST = 1:30 AM UTC (Morning Routine)
     - cron: '30 1 * * *'
-    # 12:30 PM IST = 7:00 AM UTC (Afternoon Play)
-    - cron: '0 7 * * *'
+    # 12:32 PM IST = 7:02 AM UTC (Afternoon Play - off-peak minute avoids queue delays)
+    - cron: '2 7 * * *'
     # 5:00 PM IST = 11:30 AM UTC (Evening Wind-Down)
     - cron: '30 11 * * *'
-    # 8:30 PM IST = 3:00 PM UTC (Daily Progress Report Card & Visual Chart)
-    - cron: '0 15 * * *'
+    # 8:35 PM IST = 3:05 PM UTC (Daily Progress Report Card & Visual Chart)
+    - cron: '5 15 * * *'
   workflow_dispatch:
     inputs:
       slot:
@@ -47,9 +47,9 @@ jobs:
             UTC_MINUTES=$((HOUR * 60 + MINUTE))
 
             # 1:30 UTC (90 min)  → morning (7:00 AM IST)
-            # 7:00 UTC (420 min) → afternoon (12:30 PM IST)
+            # 7:02 UTC (422 min) → afternoon (12:32 PM IST)
             # 11:30 UTC (690 min)→ evening (5:00 PM IST)
-            # 15:00 UTC (900 min)→ summary (8:30 PM IST)
+            # 15:05 UTC (905 min)→ summary (8:35 PM IST)
             if [ $UTC_MINUTES -lt 250 ]; then
               echo "slot=morning" >> $GITHUB_OUTPUT
             elif [ $UTC_MINUTES -lt 550 ]; then
