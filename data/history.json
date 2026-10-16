@@ -1,1 +1,20 @@
-{"last_updated":"","recent_activities":[]}
+{
+  "last_updated": "2026-10-16",
+  "recent_activities": [
+    {
+      "name": "Breakfast helper",
+      "date": "2026-10-16",
+      "slot": "morning"
+    },
+    {
+      "name": "Draw a smiley face",
+      "date": "2026-10-16",
+      "slot": "morning"
+    },
+    {
+      "name": "Water the plants",
+      "date": "2026-10-16",
+      "slot": "morning"
+    }
+  ]
+}
