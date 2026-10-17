@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-16",
+  "last_updated": "2026-10-17",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -76,6 +76,31 @@
       "cries": [],
       "water_glasses": 0,
       "milk_glasses": 0
+    },
+    "2026-10-17": {
+      "afternoon": [
+        {
+          "id": "2026-10-17-afternoon-0",
+          "name": "Visit the park",
+          "emoji": "🌳",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-17-afternoon-1",
+          "name": "Obstacle course at home",
+          "emoji": "🏃",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-17-afternoon-2",
+          "name": "Music & instruments",
+          "emoji": "🥁",
+          "category": "creative",
+          "completed": false
+        }
+      ]
     }
   },
   "rewards": [
