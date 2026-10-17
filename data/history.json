@@ -30,6 +30,21 @@
       "name": "Music & instruments",
       "date": "2026-10-17",
       "slot": "afternoon"
+    },
+    {
+      "name": "Family movie night",
+      "date": "2026-10-17",
+      "slot": "evening"
+    },
+    {
+      "name": "Goodnight storytime",
+      "date": "2026-10-17",
+      "slot": "evening"
+    },
+    {
+      "name": "Board game with family",
+      "date": "2026-10-17",
+      "slot": "evening"
     }
   ]
 }
