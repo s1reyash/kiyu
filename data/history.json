@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-17",
+  "last_updated": "2026-10-18",
   "recent_activities": [
     {
       "name": "Ball games",
@@ -45,6 +45,21 @@
       "name": "Board game with family",
       "date": "2026-10-17",
       "slot": "evening"
+    },
+    {
+      "name": "Splash in puddles",
+      "date": "2026-10-18",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Ice cream outing",
+      "date": "2026-10-18",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Picnic in the garden",
+      "date": "2026-10-18",
+      "slot": "afternoon"
     }
   ]
 }

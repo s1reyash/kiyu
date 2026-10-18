@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-17",
+  "last_updated": "2026-10-18",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -120,6 +120,31 @@
           "id": "2026-10-17-evening-2",
           "name": "Board game with family",
           "emoji": "🎲",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-10-18": {
+      "afternoon": [
+        {
+          "id": "2026-10-18-afternoon-0",
+          "name": "Splash in puddles",
+          "emoji": "💦",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-18-afternoon-1",
+          "name": "Ice cream outing",
+          "emoji": "🍦",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-18-afternoon-2",
+          "name": "Picnic in the garden",
+          "emoji": "🧺",
           "category": "creative",
           "completed": false
         }
