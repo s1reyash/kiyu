@@ -60,6 +60,21 @@
       "name": "Picnic in the garden",
       "date": "2026-10-18",
       "slot": "afternoon"
+    },
+    {
+      "name": "Counting stars from window",
+      "date": "2026-10-18",
+      "slot": "evening"
+    },
+    {
+      "name": "Warm milk & chat",
+      "date": "2026-10-18",
+      "slot": "evening"
+    },
+    {
+      "name": "Puppet show",
+      "date": "2026-10-18",
+      "slot": "evening"
     }
   ]
 }
