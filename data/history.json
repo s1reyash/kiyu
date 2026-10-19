@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-18",
+  "last_updated": "2026-10-19",
   "recent_activities": [
     {
       "name": "Ball games",
@@ -75,6 +75,21 @@
       "name": "Puppet show",
       "date": "2026-10-18",
       "slot": "evening"
+    },
+    {
+      "name": "Building with blocks",
+      "date": "2026-10-19",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Play-dough fun",
+      "date": "2026-10-19",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Treasure hunt",
+      "date": "2026-10-19",
+      "slot": "afternoon"
     }
   ]
 }

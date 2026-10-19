@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-18",
+  "last_updated": "2026-10-19",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -168,6 +168,31 @@
           "id": "2026-10-18-evening-2",
           "name": "Puppet show",
           "emoji": "🎭",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-10-19": {
+      "afternoon": [
+        {
+          "id": "2026-10-19-afternoon-0",
+          "name": "Building with blocks",
+          "emoji": "🧱",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-19-afternoon-1",
+          "name": "Play-dough fun",
+          "emoji": "🫧",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-19-afternoon-2",
+          "name": "Treasure hunt",
+          "emoji": "🗺️",
           "category": "creative",
           "completed": false
         }
