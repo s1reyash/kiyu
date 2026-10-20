@@ -90,6 +90,21 @@
       "name": "Puzzle solving",
       "date": "2026-10-20",
       "slot": "afternoon"
+    },
+    {
+      "name": "Bedtime yoga",
+      "date": "2026-10-20",
+      "slot": "evening"
+    },
+    {
+      "name": "Lullaby singing",
+      "date": "2026-10-20",
+      "slot": "evening"
+    },
+    {
+      "name": "Storytime with family",
+      "date": "2026-10-20",
+      "slot": "evening"
     }
   ]
 }
