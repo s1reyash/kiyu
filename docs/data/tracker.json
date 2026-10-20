@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-19",
+  "last_updated": "2026-10-20",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -193,6 +193,31 @@
           "id": "2026-10-19-afternoon-2",
           "name": "Treasure hunt",
           "emoji": "🗺️",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-10-20": {
+      "afternoon": [
+        {
+          "id": "2026-10-20-afternoon-0",
+          "name": "Balloon games",
+          "emoji": "🎈",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-20-afternoon-1",
+          "name": "Sand play",
+          "emoji": "🏖️",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-20-afternoon-2",
+          "name": "Puzzle solving",
+          "emoji": "🧩",
           "category": "creative",
           "completed": false
         }

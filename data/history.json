@@ -1,21 +1,6 @@
 {
-  "last_updated": "2026-10-19",
+  "last_updated": "2026-10-20",
   "recent_activities": [
-    {
-      "name": "Ball games",
-      "date": "2026-10-16",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Playground time",
-      "date": "2026-10-16",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Pretend cooking",
-      "date": "2026-10-16",
-      "slot": "afternoon"
-    },
     {
       "name": "Visit the park",
       "date": "2026-10-17",
@@ -89,6 +74,21 @@
     {
       "name": "Treasure hunt",
       "date": "2026-10-19",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Balloon games",
+      "date": "2026-10-20",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Sand play",
+      "date": "2026-10-20",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Puzzle solving",
+      "date": "2026-10-20",
       "slot": "afternoon"
     }
   ]
