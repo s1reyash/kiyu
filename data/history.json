@@ -90,6 +90,21 @@
       "name": "Outdoor cycling",
       "date": "2026-10-21",
       "slot": "afternoon"
+    },
+    {
+      "name": "Cuddle & chat about the day",
+      "date": "2026-10-21",
+      "slot": "evening"
+    },
+    {
+      "name": "Look at family photos",
+      "date": "2026-10-21",
+      "slot": "evening"
+    },
+    {
+      "name": "Shadow play with flashlight",
+      "date": "2026-10-21",
+      "slot": "evening"
     }
   ]
 }
