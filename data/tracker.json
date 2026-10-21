@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-20",
+  "last_updated": "2026-10-21",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -241,6 +241,31 @@
           "id": "2026-10-20-evening-2",
           "name": "Storytime with family",
           "emoji": "📚",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-10-21": {
+      "afternoon": [
+        {
+          "id": "2026-10-21-afternoon-0",
+          "name": "Car & truck play",
+          "emoji": "🚗",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-21-afternoon-1",
+          "name": "Animal figures play",
+          "emoji": "🦕",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-21-afternoon-2",
+          "name": "Outdoor cycling",
+          "emoji": "🚲",
           "category": "creative",
           "completed": false
         }

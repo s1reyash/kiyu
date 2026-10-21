@@ -1,36 +1,6 @@
 {
-  "last_updated": "2026-10-20",
+  "last_updated": "2026-10-21",
   "recent_activities": [
-    {
-      "name": "Visit the park",
-      "date": "2026-10-17",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Obstacle course at home",
-      "date": "2026-10-17",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Music & instruments",
-      "date": "2026-10-17",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Family movie night",
-      "date": "2026-10-17",
-      "slot": "evening"
-    },
-    {
-      "name": "Goodnight storytime",
-      "date": "2026-10-17",
-      "slot": "evening"
-    },
-    {
-      "name": "Board game with family",
-      "date": "2026-10-17",
-      "slot": "evening"
-    },
     {
       "name": "Splash in puddles",
       "date": "2026-10-18",
@@ -105,6 +75,21 @@
       "name": "Storytime with family",
       "date": "2026-10-20",
       "slot": "evening"
+    },
+    {
+      "name": "Car & truck play",
+      "date": "2026-10-21",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Animal figures play",
+      "date": "2026-10-21",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Outdoor cycling",
+      "date": "2026-10-21",
+      "slot": "afternoon"
     }
   ]
 }
