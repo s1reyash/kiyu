@@ -90,6 +90,21 @@
       "name": "Coloring & drawing",
       "date": "2026-10-22",
       "slot": "afternoon"
+    },
+    {
+      "name": "Soft toy tea party",
+      "date": "2026-10-22",
+      "slot": "evening"
+    },
+    {
+      "name": "Gentle coloring",
+      "date": "2026-10-22",
+      "slot": "evening"
+    },
+    {
+      "name": "Sticker activity",
+      "date": "2026-10-22",
+      "slot": "evening"
     }
   ]
 }
