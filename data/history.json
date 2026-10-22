@@ -1,36 +1,6 @@
 {
-  "last_updated": "2026-10-21",
+  "last_updated": "2026-10-22",
   "recent_activities": [
-    {
-      "name": "Splash in puddles",
-      "date": "2026-10-18",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Ice cream outing",
-      "date": "2026-10-18",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Picnic in the garden",
-      "date": "2026-10-18",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Counting stars from window",
-      "date": "2026-10-18",
-      "slot": "evening"
-    },
-    {
-      "name": "Warm milk & chat",
-      "date": "2026-10-18",
-      "slot": "evening"
-    },
-    {
-      "name": "Puppet show",
-      "date": "2026-10-18",
-      "slot": "evening"
-    },
     {
       "name": "Building with blocks",
       "date": "2026-10-19",
@@ -105,6 +75,21 @@
       "name": "Shadow play with flashlight",
       "date": "2026-10-21",
       "slot": "evening"
+    },
+    {
+      "name": "Pretend cooking",
+      "date": "2026-10-22",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Ball games",
+      "date": "2026-10-22",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Coloring & drawing",
+      "date": "2026-10-22",
+      "slot": "afternoon"
     }
   ]
 }

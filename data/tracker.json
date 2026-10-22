@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-21",
+  "last_updated": "2026-10-22",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -289,6 +289,31 @@
           "id": "2026-10-21-evening-2",
           "name": "Shadow play with flashlight",
           "emoji": "🔦",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-10-22": {
+      "afternoon": [
+        {
+          "id": "2026-10-22-afternoon-0",
+          "name": "Pretend cooking",
+          "emoji": "🍳",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-22-afternoon-1",
+          "name": "Ball games",
+          "emoji": "⚽",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-22-afternoon-2",
+          "name": "Coloring & drawing",
+          "emoji": "🎨",
           "category": "creative",
           "completed": false
         }
