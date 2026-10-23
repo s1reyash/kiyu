@@ -105,6 +105,21 @@
       "name": "Building with blocks",
       "date": "2026-10-23",
       "slot": "afternoon"
+    },
+    {
+      "name": "Lullaby singing",
+      "date": "2026-10-23",
+      "slot": "evening"
+    },
+    {
+      "name": "Watch a short cartoon",
+      "date": "2026-10-23",
+      "slot": "evening"
+    },
+    {
+      "name": "Soft toy tea party",
+      "date": "2026-10-23",
+      "slot": "evening"
     }
   ]
 }
