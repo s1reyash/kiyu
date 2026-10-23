@@ -1,21 +1,6 @@
 {
-  "last_updated": "2026-10-22",
+  "last_updated": "2026-10-23",
   "recent_activities": [
-    {
-      "name": "Building with blocks",
-      "date": "2026-10-19",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Play-dough fun",
-      "date": "2026-10-19",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Treasure hunt",
-      "date": "2026-10-19",
-      "slot": "afternoon"
-    },
     {
       "name": "Balloon games",
       "date": "2026-10-20",
@@ -105,6 +90,21 @@
       "name": "Sticker activity",
       "date": "2026-10-22",
       "slot": "evening"
+    },
+    {
+      "name": "Play-dough fun",
+      "date": "2026-10-23",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Playground time",
+      "date": "2026-10-23",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Building with blocks",
+      "date": "2026-10-23",
+      "slot": "afternoon"
     }
   ]
 }
