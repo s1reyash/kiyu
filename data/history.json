@@ -1,36 +1,6 @@
 {
-  "last_updated": "2026-10-23",
+  "last_updated": "2026-10-24",
   "recent_activities": [
-    {
-      "name": "Balloon games",
-      "date": "2026-10-20",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Sand play",
-      "date": "2026-10-20",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Puzzle solving",
-      "date": "2026-10-20",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Bedtime yoga",
-      "date": "2026-10-20",
-      "slot": "evening"
-    },
-    {
-      "name": "Lullaby singing",
-      "date": "2026-10-20",
-      "slot": "evening"
-    },
-    {
-      "name": "Storytime with family",
-      "date": "2026-10-20",
-      "slot": "evening"
-    },
     {
       "name": "Car & truck play",
       "date": "2026-10-21",
@@ -120,6 +90,21 @@
       "name": "Soft toy tea party",
       "date": "2026-10-23",
       "slot": "evening"
+    },
+    {
+      "name": "Music & instruments",
+      "date": "2026-10-24",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Splash in puddles",
+      "date": "2026-10-24",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Picnic in the garden",
+      "date": "2026-10-24",
+      "slot": "afternoon"
     }
   ]
 }

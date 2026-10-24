@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-23",
+  "last_updated": "2026-10-24",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -385,6 +385,31 @@
           "id": "2026-10-23-evening-2",
           "name": "Soft toy tea party",
           "emoji": "🧸",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-10-24": {
+      "afternoon": [
+        {
+          "id": "2026-10-24-afternoon-0",
+          "name": "Music & instruments",
+          "emoji": "🥁",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-24-afternoon-1",
+          "name": "Splash in puddles",
+          "emoji": "💦",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-24-afternoon-2",
+          "name": "Picnic in the garden",
+          "emoji": "🧺",
           "category": "creative",
           "completed": false
         }
