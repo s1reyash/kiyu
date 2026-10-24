@@ -413,6 +413,29 @@
           "category": "creative",
           "completed": false
         }
+      ],
+      "evening": [
+        {
+          "id": "2026-10-24-evening-0",
+          "name": "Drawing the day's adventure",
+          "emoji": "✏️",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-24-evening-1",
+          "name": "Family movie night",
+          "emoji": "🎬",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-24-evening-2",
+          "name": "Goodnight storytime",
+          "emoji": "📖",
+          "category": "creative",
+          "completed": false
+        }
       ]
     }
   },

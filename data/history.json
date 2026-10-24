@@ -105,6 +105,21 @@
       "name": "Picnic in the garden",
       "date": "2026-10-24",
       "slot": "afternoon"
+    },
+    {
+      "name": "Drawing the day's adventure",
+      "date": "2026-10-24",
+      "slot": "evening"
+    },
+    {
+      "name": "Family movie night",
+      "date": "2026-10-24",
+      "slot": "evening"
+    },
+    {
+      "name": "Goodnight storytime",
+      "date": "2026-10-24",
+      "slot": "evening"
     }
   ]
 }
