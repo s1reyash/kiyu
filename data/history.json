@@ -1,36 +1,6 @@
 {
-  "last_updated": "2026-10-24",
+  "last_updated": "2026-10-25",
   "recent_activities": [
-    {
-      "name": "Car & truck play",
-      "date": "2026-10-21",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Animal figures play",
-      "date": "2026-10-21",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Outdoor cycling",
-      "date": "2026-10-21",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Cuddle & chat about the day",
-      "date": "2026-10-21",
-      "slot": "evening"
-    },
-    {
-      "name": "Look at family photos",
-      "date": "2026-10-21",
-      "slot": "evening"
-    },
-    {
-      "name": "Shadow play with flashlight",
-      "date": "2026-10-21",
-      "slot": "evening"
-    },
     {
       "name": "Pretend cooking",
       "date": "2026-10-22",
@@ -120,6 +90,21 @@
       "name": "Goodnight storytime",
       "date": "2026-10-24",
       "slot": "evening"
+    },
+    {
+      "name": "Kite flying",
+      "date": "2026-10-25",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Zoo animal book reading",
+      "date": "2026-10-25",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Ice cream outing",
+      "date": "2026-10-25",
+      "slot": "afternoon"
     }
   ]
 }
