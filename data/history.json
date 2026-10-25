@@ -105,6 +105,21 @@
       "name": "Ice cream outing",
       "date": "2026-10-25",
       "slot": "afternoon"
+    },
+    {
+      "name": "Gentle music listening",
+      "date": "2026-10-25",
+      "slot": "evening"
+    },
+    {
+      "name": "Build something with Duplo",
+      "date": "2026-10-25",
+      "slot": "evening"
+    },
+    {
+      "name": "Puppet show",
+      "date": "2026-10-25",
+      "slot": "evening"
     }
   ]
 }
