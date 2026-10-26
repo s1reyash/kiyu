@@ -1,36 +1,6 @@
 {
-  "last_updated": "2026-10-25",
+  "last_updated": "2026-10-26",
   "recent_activities": [
-    {
-      "name": "Pretend cooking",
-      "date": "2026-10-22",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Ball games",
-      "date": "2026-10-22",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Coloring & drawing",
-      "date": "2026-10-22",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Soft toy tea party",
-      "date": "2026-10-22",
-      "slot": "evening"
-    },
-    {
-      "name": "Gentle coloring",
-      "date": "2026-10-22",
-      "slot": "evening"
-    },
-    {
-      "name": "Sticker activity",
-      "date": "2026-10-22",
-      "slot": "evening"
-    },
     {
       "name": "Play-dough fun",
       "date": "2026-10-23",
@@ -120,6 +90,21 @@
       "name": "Puppet show",
       "date": "2026-10-25",
       "slot": "evening"
+    },
+    {
+      "name": "Coloring & drawing",
+      "date": "2026-10-26",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Pretend cooking",
+      "date": "2026-10-26",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Ball games",
+      "date": "2026-10-26",
+      "slot": "afternoon"
     }
   ]
 }

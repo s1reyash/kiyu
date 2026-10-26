@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-25",
+  "last_updated": "2026-10-26",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -481,6 +481,31 @@
           "id": "2026-10-25-evening-2",
           "name": "Puppet show",
           "emoji": "🎭",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-10-26": {
+      "afternoon": [
+        {
+          "id": "2026-10-26-afternoon-0",
+          "name": "Coloring & drawing",
+          "emoji": "🎨",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-26-afternoon-1",
+          "name": "Pretend cooking",
+          "emoji": "🍳",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-10-26-afternoon-2",
+          "name": "Ball games",
+          "emoji": "⚽",
           "category": "creative",
           "completed": false
         }
