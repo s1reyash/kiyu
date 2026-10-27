@@ -90,6 +90,21 @@
       "name": "Playground time",
       "date": "2026-10-27",
       "slot": "afternoon"
+    },
+    {
+      "name": "Soft toy tea party",
+      "date": "2026-10-27",
+      "slot": "evening"
+    },
+    {
+      "name": "Sticker activity",
+      "date": "2026-10-27",
+      "slot": "evening"
+    },
+    {
+      "name": "Look at family photos",
+      "date": "2026-10-27",
+      "slot": "evening"
     }
   ]
 }
