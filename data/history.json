@@ -1,36 +1,6 @@
 {
-  "last_updated": "2026-10-28",
+  "last_updated": "2026-10-29",
   "recent_activities": [
-    {
-      "name": "Kite flying",
-      "date": "2026-10-25",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Zoo animal book reading",
-      "date": "2026-10-25",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Ice cream outing",
-      "date": "2026-10-25",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Gentle music listening",
-      "date": "2026-10-25",
-      "slot": "evening"
-    },
-    {
-      "name": "Build something with Duplo",
-      "date": "2026-10-25",
-      "slot": "evening"
-    },
-    {
-      "name": "Puppet show",
-      "date": "2026-10-25",
-      "slot": "evening"
-    },
     {
       "name": "Coloring & drawing",
       "date": "2026-10-26",
@@ -89,6 +59,21 @@
     {
       "name": "Animal figures play",
       "date": "2026-10-28",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Puzzle solving",
+      "date": "2026-10-29",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Dance party",
+      "date": "2026-10-29",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Balloon games",
+      "date": "2026-10-29",
       "slot": "afternoon"
     }
   ]
