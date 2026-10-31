@@ -1,36 +1,6 @@
 {
-  "last_updated": "2026-10-30",
+  "last_updated": "2026-10-31",
   "recent_activities": [
-    {
-      "name": "Treasure hunt",
-      "date": "2026-10-27",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Car & truck play",
-      "date": "2026-10-27",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Playground time",
-      "date": "2026-10-27",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Soft toy tea party",
-      "date": "2026-10-27",
-      "slot": "evening"
-    },
-    {
-      "name": "Sticker activity",
-      "date": "2026-10-27",
-      "slot": "evening"
-    },
-    {
-      "name": "Look at family photos",
-      "date": "2026-10-27",
-      "slot": "evening"
-    },
     {
       "name": "Building with blocks",
       "date": "2026-10-28",
@@ -74,6 +44,21 @@
     {
       "name": "Outdoor cycling",
       "date": "2026-10-30",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Splash in puddles",
+      "date": "2026-10-31",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Picnic in the garden",
+      "date": "2026-10-31",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Zoo animal book reading",
+      "date": "2026-10-31",
       "slot": "afternoon"
     }
   ]
