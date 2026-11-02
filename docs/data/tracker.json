@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-01",
+  "last_updated": "2026-11-02",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -679,6 +679,31 @@
           "id": "2026-11-01-afternoon-2",
           "name": "Music & instruments",
           "emoji": "🥁",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-11-02": {
+      "afternoon": [
+        {
+          "id": "2026-11-02-afternoon-0",
+          "name": "Pretend cooking",
+          "emoji": "🍳",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-02-afternoon-1",
+          "name": "Balloon games",
+          "emoji": "🎈",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-02-afternoon-2",
+          "name": "Animal figures play",
+          "emoji": "🦕",
           "category": "creative",
           "completed": false
         }
