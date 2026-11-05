@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-04",
+  "last_updated": "2026-11-05",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -754,6 +754,31 @@
           "id": "2026-11-04-afternoon-2",
           "name": "Outdoor cycling",
           "emoji": "🚲",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-11-05": {
+      "afternoon": [
+        {
+          "id": "2026-11-05-afternoon-0",
+          "name": "Play-dough fun",
+          "emoji": "🫧",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-05-afternoon-1",
+          "name": "Ball games",
+          "emoji": "⚽",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-05-afternoon-2",
+          "name": "Coloring & drawing",
+          "emoji": "🎨",
           "category": "creative",
           "completed": false
         }
