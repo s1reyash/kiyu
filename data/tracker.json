@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-06",
+  "last_updated": "2026-11-07",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -804,6 +804,31 @@
           "id": "2026-11-06-afternoon-2",
           "name": "Puzzle solving",
           "emoji": "🧩",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-11-07": {
+      "afternoon": [
+        {
+          "id": "2026-11-07-afternoon-0",
+          "name": "Splash in puddles",
+          "emoji": "💦",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-07-afternoon-1",
+          "name": "Kite flying",
+          "emoji": "🪁",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-07-afternoon-2",
+          "name": "Ice cream outing",
+          "emoji": "🍦",
           "category": "creative",
           "completed": false
         }
