@@ -1,21 +1,6 @@
 {
-  "last_updated": "2026-11-07",
+  "last_updated": "2026-11-08",
   "recent_activities": [
-    {
-      "name": "Car & truck play",
-      "date": "2026-11-04",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Building with blocks",
-      "date": "2026-11-04",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Outdoor cycling",
-      "date": "2026-11-04",
-      "slot": "afternoon"
-    },
     {
       "name": "Play-dough fun",
       "date": "2026-11-05",
@@ -59,6 +44,21 @@
     {
       "name": "Ice cream outing",
       "date": "2026-11-07",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Ride-on toy time",
+      "date": "2026-11-08",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Craft time (paper cutting)",
+      "date": "2026-11-08",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Zoo animal book reading",
+      "date": "2026-11-08",
       "slot": "afternoon"
     }
   ]

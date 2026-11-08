@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-07",
+  "last_updated": "2026-11-08",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -829,6 +829,31 @@
           "id": "2026-11-07-afternoon-2",
           "name": "Ice cream outing",
           "emoji": "🍦",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-11-08": {
+      "afternoon": [
+        {
+          "id": "2026-11-08-afternoon-0",
+          "name": "Ride-on toy time",
+          "emoji": "🛴",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-08-afternoon-1",
+          "name": "Craft time (paper cutting)",
+          "emoji": "✂️",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-08-afternoon-2",
+          "name": "Zoo animal book reading",
+          "emoji": "🦁",
           "category": "creative",
           "completed": false
         }
