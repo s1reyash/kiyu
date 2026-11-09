@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-08",
+  "last_updated": "2026-11-09",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -854,6 +854,31 @@
           "id": "2026-11-08-afternoon-2",
           "name": "Zoo animal book reading",
           "emoji": "🦁",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-11-09": {
+      "afternoon": [
+        {
+          "id": "2026-11-09-afternoon-0",
+          "name": "Building with blocks",
+          "emoji": "🧱",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-09-afternoon-1",
+          "name": "Ball games",
+          "emoji": "⚽",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-09-afternoon-2",
+          "name": "Animal figures play",
+          "emoji": "🦕",
           "category": "creative",
           "completed": false
         }
