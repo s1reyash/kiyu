@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-09",
+  "last_updated": "2026-11-10",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -879,6 +879,31 @@
           "id": "2026-11-09-afternoon-2",
           "name": "Animal figures play",
           "emoji": "🦕",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-11-10": {
+      "afternoon": [
+        {
+          "id": "2026-11-10-afternoon-0",
+          "name": "Pretend cooking",
+          "emoji": "🍳",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-10-afternoon-1",
+          "name": "Outdoor cycling",
+          "emoji": "🚲",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-10-afternoon-2",
+          "name": "Car & truck play",
+          "emoji": "🚗",
           "category": "creative",
           "completed": false
         }

@@ -1,21 +1,6 @@
 {
-  "last_updated": "2026-11-09",
+  "last_updated": "2026-11-10",
   "recent_activities": [
-    {
-      "name": "Pretend cooking",
-      "date": "2026-11-06",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Dance party",
-      "date": "2026-11-06",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Puzzle solving",
-      "date": "2026-11-06",
-      "slot": "afternoon"
-    },
     {
       "name": "Splash in puddles",
       "date": "2026-11-07",
@@ -59,6 +44,21 @@
     {
       "name": "Animal figures play",
       "date": "2026-11-09",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Pretend cooking",
+      "date": "2026-11-10",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Outdoor cycling",
+      "date": "2026-11-10",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Car & truck play",
+      "date": "2026-11-10",
       "slot": "afternoon"
     }
   ]
