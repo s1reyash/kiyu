@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-10",
+  "last_updated": "2026-11-11",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -904,6 +904,31 @@
           "id": "2026-11-10-afternoon-2",
           "name": "Car & truck play",
           "emoji": "🚗",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-11-11": {
+      "afternoon": [
+        {
+          "id": "2026-11-11-afternoon-0",
+          "name": "Coloring & drawing",
+          "emoji": "🎨",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-11-afternoon-1",
+          "name": "Treasure hunt",
+          "emoji": "🗺️",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-11-afternoon-2",
+          "name": "Playground time",
+          "emoji": "🛝",
           "category": "creative",
           "completed": false
         }

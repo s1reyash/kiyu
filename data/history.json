@@ -1,21 +1,6 @@
 {
-  "last_updated": "2026-11-10",
+  "last_updated": "2026-11-11",
   "recent_activities": [
-    {
-      "name": "Splash in puddles",
-      "date": "2026-11-07",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Kite flying",
-      "date": "2026-11-07",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Ice cream outing",
-      "date": "2026-11-07",
-      "slot": "afternoon"
-    },
     {
       "name": "Ride-on toy time",
       "date": "2026-11-08",
@@ -59,6 +44,21 @@
     {
       "name": "Car & truck play",
       "date": "2026-11-10",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Coloring & drawing",
+      "date": "2026-11-11",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Treasure hunt",
+      "date": "2026-11-11",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Playground time",
+      "date": "2026-11-11",
       "slot": "afternoon"
     }
   ]
