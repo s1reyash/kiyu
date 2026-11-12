@@ -1,21 +1,6 @@
 {
-  "last_updated": "2026-11-11",
+  "last_updated": "2026-11-12",
   "recent_activities": [
-    {
-      "name": "Ride-on toy time",
-      "date": "2026-11-08",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Craft time (paper cutting)",
-      "date": "2026-11-08",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Zoo animal book reading",
-      "date": "2026-11-08",
-      "slot": "afternoon"
-    },
     {
       "name": "Building with blocks",
       "date": "2026-11-09",
@@ -59,6 +44,21 @@
     {
       "name": "Playground time",
       "date": "2026-11-11",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Puzzle solving",
+      "date": "2026-11-12",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Sand play",
+      "date": "2026-11-12",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Dance party",
+      "date": "2026-11-12",
       "slot": "afternoon"
     }
   ]
