@@ -1,21 +1,6 @@
 {
-  "last_updated": "2026-11-12",
+  "last_updated": "2026-11-13",
   "recent_activities": [
-    {
-      "name": "Building with blocks",
-      "date": "2026-11-09",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Ball games",
-      "date": "2026-11-09",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Animal figures play",
-      "date": "2026-11-09",
-      "slot": "afternoon"
-    },
     {
       "name": "Pretend cooking",
       "date": "2026-11-10",
@@ -59,6 +44,21 @@
     {
       "name": "Dance party",
       "date": "2026-11-12",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Animal figures play",
+      "date": "2026-11-13",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Building with blocks",
+      "date": "2026-11-13",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Ball games",
+      "date": "2026-11-13",
       "slot": "afternoon"
     }
   ]
