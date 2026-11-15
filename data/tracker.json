@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-14",
+  "last_updated": "2026-11-15",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -1004,6 +1004,31 @@
           "id": "2026-11-14-afternoon-2",
           "name": "Picnic in the garden",
           "emoji": "🧺",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-11-15": {
+      "afternoon": [
+        {
+          "id": "2026-11-15-afternoon-0",
+          "name": "Splash in puddles",
+          "emoji": "💦",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-15-afternoon-1",
+          "name": "Obstacle course at home",
+          "emoji": "🏃",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-15-afternoon-2",
+          "name": "Craft time (paper cutting)",
+          "emoji": "✂️",
           "category": "creative",
           "completed": false
         }
