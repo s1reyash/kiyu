@@ -1,21 +1,6 @@
 {
-  "last_updated": "2026-11-15",
+  "last_updated": "2026-11-16",
   "recent_activities": [
-    {
-      "name": "Puzzle solving",
-      "date": "2026-11-12",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Sand play",
-      "date": "2026-11-12",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Dance party",
-      "date": "2026-11-12",
-      "slot": "afternoon"
-    },
     {
       "name": "Animal figures play",
       "date": "2026-11-13",
@@ -59,6 +44,21 @@
     {
       "name": "Craft time (paper cutting)",
       "date": "2026-11-15",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Car & truck play",
+      "date": "2026-11-16",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Sand play",
+      "date": "2026-11-16",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Puzzle solving",
+      "date": "2026-11-16",
       "slot": "afternoon"
     }
   ]
