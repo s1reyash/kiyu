@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-16",
+  "last_updated": "2026-11-17",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -1054,6 +1054,31 @@
           "id": "2026-11-16-afternoon-2",
           "name": "Puzzle solving",
           "emoji": "🧩",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-11-17": {
+      "evening": [
+        {
+          "id": "2026-11-17-evening-0",
+          "name": "Look at family photos",
+          "emoji": "📸",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-17-evening-1",
+          "name": "Gentle coloring",
+          "emoji": "🖍️",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-17-evening-2",
+          "name": "Soft toy tea party",
+          "emoji": "🧸",
           "category": "creative",
           "completed": false
         }
