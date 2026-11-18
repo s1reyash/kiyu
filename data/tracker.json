@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-17",
+  "last_updated": "2026-11-18",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -1079,6 +1079,31 @@
           "id": "2026-11-17-evening-2",
           "name": "Soft toy tea party",
           "emoji": "🧸",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-11-18": {
+      "afternoon": [
+        {
+          "id": "2026-11-18-afternoon-0",
+          "name": "Play-dough fun",
+          "emoji": "🫧",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-18-afternoon-1",
+          "name": "Animal figures play",
+          "emoji": "🦕",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-18-afternoon-2",
+          "name": "Treasure hunt",
+          "emoji": "🗺️",
           "category": "creative",
           "completed": false
         }
