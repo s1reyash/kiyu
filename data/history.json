@@ -1,21 +1,6 @@
 {
-  "last_updated": "2026-11-19",
+  "last_updated": "2026-11-20",
   "recent_activities": [
-    {
-      "name": "Car & truck play",
-      "date": "2026-11-16",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Sand play",
-      "date": "2026-11-16",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Puzzle solving",
-      "date": "2026-11-16",
-      "slot": "afternoon"
-    },
     {
       "name": "Look at family photos",
       "date": "2026-11-17",
@@ -60,6 +45,21 @@
       "name": "Storytime with family",
       "date": "2026-11-19",
       "slot": "evening"
+    },
+    {
+      "name": "Ball games",
+      "date": "2026-11-20",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Coloring & drawing",
+      "date": "2026-11-20",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Puzzle solving",
+      "date": "2026-11-20",
+      "slot": "afternoon"
     }
   ]
 }

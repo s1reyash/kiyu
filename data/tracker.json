@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-19",
+  "last_updated": "2026-11-20",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -1129,6 +1129,31 @@
           "id": "2026-11-19-evening-2",
           "name": "Storytime with family",
           "emoji": "📚",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-11-20": {
+      "afternoon": [
+        {
+          "id": "2026-11-20-afternoon-0",
+          "name": "Ball games",
+          "emoji": "⚽",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-20-afternoon-1",
+          "name": "Coloring & drawing",
+          "emoji": "🎨",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-20-afternoon-2",
+          "name": "Puzzle solving",
+          "emoji": "🧩",
           "category": "creative",
           "completed": false
         }
