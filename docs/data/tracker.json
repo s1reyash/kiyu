@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-20",
+  "last_updated": "2026-11-21",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -1154,6 +1154,31 @@
           "id": "2026-11-20-afternoon-2",
           "name": "Puzzle solving",
           "emoji": "🧩",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-11-21": {
+      "afternoon": [
+        {
+          "id": "2026-11-21-afternoon-0",
+          "name": "Ride-on toy time",
+          "emoji": "🛴",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-21-afternoon-1",
+          "name": "Ice cream outing",
+          "emoji": "🍦",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-21-afternoon-2",
+          "name": "Music & instruments",
+          "emoji": "🥁",
           "category": "creative",
           "completed": false
         }

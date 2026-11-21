@@ -1,21 +1,6 @@
 {
-  "last_updated": "2026-11-20",
+  "last_updated": "2026-11-21",
   "recent_activities": [
-    {
-      "name": "Look at family photos",
-      "date": "2026-11-17",
-      "slot": "evening"
-    },
-    {
-      "name": "Gentle coloring",
-      "date": "2026-11-17",
-      "slot": "evening"
-    },
-    {
-      "name": "Soft toy tea party",
-      "date": "2026-11-17",
-      "slot": "evening"
-    },
     {
       "name": "Play-dough fun",
       "date": "2026-11-18",
@@ -59,6 +44,21 @@
     {
       "name": "Puzzle solving",
       "date": "2026-11-20",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Ride-on toy time",
+      "date": "2026-11-21",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Ice cream outing",
+      "date": "2026-11-21",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Music & instruments",
+      "date": "2026-11-21",
       "slot": "afternoon"
     }
   ]
