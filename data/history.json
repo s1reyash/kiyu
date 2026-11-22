@@ -1,21 +1,6 @@
 {
-  "last_updated": "2026-11-21",
+  "last_updated": "2026-11-22",
   "recent_activities": [
-    {
-      "name": "Play-dough fun",
-      "date": "2026-11-18",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Animal figures play",
-      "date": "2026-11-18",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Treasure hunt",
-      "date": "2026-11-18",
-      "slot": "afternoon"
-    },
     {
       "name": "Shadow play with flashlight",
       "date": "2026-11-19",
@@ -59,6 +44,21 @@
     {
       "name": "Music & instruments",
       "date": "2026-11-21",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Splash in puddles",
+      "date": "2026-11-22",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Visit the park",
+      "date": "2026-11-22",
+      "slot": "afternoon"
+    },
+    {
+      "name": "Visit grandparents",
+      "date": "2026-11-22",
       "slot": "afternoon"
     }
   ]

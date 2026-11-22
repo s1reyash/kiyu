@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-21",
+  "last_updated": "2026-11-22",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -1179,6 +1179,31 @@
           "id": "2026-11-21-afternoon-2",
           "name": "Music & instruments",
           "emoji": "🥁",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-11-22": {
+      "afternoon": [
+        {
+          "id": "2026-11-22-afternoon-0",
+          "name": "Splash in puddles",
+          "emoji": "💦",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-22-afternoon-1",
+          "name": "Visit the park",
+          "emoji": "🌳",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-22-afternoon-2",
+          "name": "Visit grandparents",
+          "emoji": "👴",
           "category": "creative",
           "completed": false
         }
