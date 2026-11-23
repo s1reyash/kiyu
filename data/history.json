@@ -1,21 +1,6 @@
 {
-  "last_updated": "2026-11-22",
+  "last_updated": "2026-11-23",
   "recent_activities": [
-    {
-      "name": "Shadow play with flashlight",
-      "date": "2026-11-19",
-      "slot": "evening"
-    },
-    {
-      "name": "Lullaby singing",
-      "date": "2026-11-19",
-      "slot": "evening"
-    },
-    {
-      "name": "Storytime with family",
-      "date": "2026-11-19",
-      "slot": "evening"
-    },
     {
       "name": "Ball games",
       "date": "2026-11-20",
@@ -60,6 +45,21 @@
       "name": "Visit grandparents",
       "date": "2026-11-22",
       "slot": "afternoon"
+    },
+    {
+      "name": "Shadow play with flashlight",
+      "date": "2026-11-23",
+      "slot": "evening"
+    },
+    {
+      "name": "Cuddle & chat about the day",
+      "date": "2026-11-23",
+      "slot": "evening"
+    },
+    {
+      "name": "Look at family photos",
+      "date": "2026-11-23",
+      "slot": "evening"
     }
   ]
 }
