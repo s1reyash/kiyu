@@ -1,21 +1,6 @@
 {
-  "last_updated": "2026-11-23",
+  "last_updated": "2026-11-24",
   "recent_activities": [
-    {
-      "name": "Ball games",
-      "date": "2026-11-20",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Coloring & drawing",
-      "date": "2026-11-20",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Puzzle solving",
-      "date": "2026-11-20",
-      "slot": "afternoon"
-    },
     {
       "name": "Ride-on toy time",
       "date": "2026-11-21",
@@ -60,6 +45,21 @@
       "name": "Look at family photos",
       "date": "2026-11-23",
       "slot": "evening"
+    },
+    {
+      "name": "Sing a nursery rhyme",
+      "date": "2026-11-24",
+      "slot": "morning"
+    },
+    {
+      "name": "Pack school bag together",
+      "date": "2026-11-24",
+      "slot": "morning"
+    },
+    {
+      "name": "Breakfast helper",
+      "date": "2026-11-24",
+      "slot": "morning"
     }
   ]
 }
