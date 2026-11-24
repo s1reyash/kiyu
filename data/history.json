@@ -60,6 +60,21 @@
       "name": "Breakfast helper",
       "date": "2026-11-24",
       "slot": "morning"
+    },
+    {
+      "name": "Lullaby singing",
+      "date": "2026-11-24",
+      "slot": "evening"
+    },
+    {
+      "name": "Gentle coloring",
+      "date": "2026-11-24",
+      "slot": "evening"
+    },
+    {
+      "name": "Sticker activity",
+      "date": "2026-11-24",
+      "slot": "evening"
     }
   ]
 }
