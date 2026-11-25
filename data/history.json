@@ -1,21 +1,6 @@
 {
-  "last_updated": "2026-11-24",
+  "last_updated": "2026-11-25",
   "recent_activities": [
-    {
-      "name": "Ride-on toy time",
-      "date": "2026-11-21",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Ice cream outing",
-      "date": "2026-11-21",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Music & instruments",
-      "date": "2026-11-21",
-      "slot": "afternoon"
-    },
     {
       "name": "Splash in puddles",
       "date": "2026-11-22",
@@ -74,6 +59,21 @@
     {
       "name": "Sticker activity",
       "date": "2026-11-24",
+      "slot": "evening"
+    },
+    {
+      "name": "Bedtime yoga",
+      "date": "2026-11-25",
+      "slot": "evening"
+    },
+    {
+      "name": "Storytime with family",
+      "date": "2026-11-25",
+      "slot": "evening"
+    },
+    {
+      "name": "Soft toy tea party",
+      "date": "2026-11-25",
       "slot": "evening"
     }
   ]

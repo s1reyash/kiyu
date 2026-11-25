@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-24",
+  "last_updated": "2026-11-25",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -1277,6 +1277,31 @@
           "id": "2026-11-24-evening-2",
           "name": "Sticker activity",
           "emoji": "⭐",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-11-25": {
+      "evening": [
+        {
+          "id": "2026-11-25-evening-0",
+          "name": "Bedtime yoga",
+          "emoji": "🧘",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-25-evening-1",
+          "name": "Storytime with family",
+          "emoji": "📚",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-25-evening-2",
+          "name": "Soft toy tea party",
+          "emoji": "🧸",
           "category": "creative",
           "completed": false
         }
