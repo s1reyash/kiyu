@@ -1,21 +1,6 @@
 {
-  "last_updated": "2026-11-25",
+  "last_updated": "2026-11-26",
   "recent_activities": [
-    {
-      "name": "Splash in puddles",
-      "date": "2026-11-22",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Visit the park",
-      "date": "2026-11-22",
-      "slot": "afternoon"
-    },
-    {
-      "name": "Visit grandparents",
-      "date": "2026-11-22",
-      "slot": "afternoon"
-    },
     {
       "name": "Shadow play with flashlight",
       "date": "2026-11-23",
@@ -74,6 +59,21 @@
     {
       "name": "Soft toy tea party",
       "date": "2026-11-25",
+      "slot": "evening"
+    },
+    {
+      "name": "Cuddle & chat about the day",
+      "date": "2026-11-26",
+      "slot": "evening"
+    },
+    {
+      "name": "Soft toy tea party",
+      "date": "2026-11-26",
+      "slot": "evening"
+    },
+    {
+      "name": "Bedtime yoga",
+      "date": "2026-11-26",
       "slot": "evening"
     }
   ]
