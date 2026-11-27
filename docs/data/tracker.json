@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-26",
+  "last_updated": "2026-11-27",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -1327,6 +1327,31 @@
           "id": "2026-11-26-evening-2",
           "name": "Bedtime yoga",
           "emoji": "🧘",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-11-27": {
+      "evening": [
+        {
+          "id": "2026-11-27-evening-0",
+          "name": "Shadow play with flashlight",
+          "emoji": "🔦",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-27-evening-1",
+          "name": "Watch a short cartoon",
+          "emoji": "📺",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-27-evening-2",
+          "name": "Look at family photos",
+          "emoji": "📸",
           "category": "creative",
           "completed": false
         }

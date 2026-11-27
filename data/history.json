@@ -1,21 +1,6 @@
 {
-  "last_updated": "2026-11-26",
+  "last_updated": "2026-11-27",
   "recent_activities": [
-    {
-      "name": "Shadow play with flashlight",
-      "date": "2026-11-23",
-      "slot": "evening"
-    },
-    {
-      "name": "Cuddle & chat about the day",
-      "date": "2026-11-23",
-      "slot": "evening"
-    },
-    {
-      "name": "Look at family photos",
-      "date": "2026-11-23",
-      "slot": "evening"
-    },
     {
       "name": "Sing a nursery rhyme",
       "date": "2026-11-24",
@@ -74,6 +59,21 @@
     {
       "name": "Bedtime yoga",
       "date": "2026-11-26",
+      "slot": "evening"
+    },
+    {
+      "name": "Shadow play with flashlight",
+      "date": "2026-11-27",
+      "slot": "evening"
+    },
+    {
+      "name": "Watch a short cartoon",
+      "date": "2026-11-27",
+      "slot": "evening"
+    },
+    {
+      "name": "Look at family photos",
+      "date": "2026-11-27",
       "slot": "evening"
     }
   ]
