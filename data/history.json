@@ -1,36 +1,6 @@
 {
-  "last_updated": "2026-11-27",
+  "last_updated": "2026-11-28",
   "recent_activities": [
-    {
-      "name": "Sing a nursery rhyme",
-      "date": "2026-11-24",
-      "slot": "morning"
-    },
-    {
-      "name": "Pack school bag together",
-      "date": "2026-11-24",
-      "slot": "morning"
-    },
-    {
-      "name": "Breakfast helper",
-      "date": "2026-11-24",
-      "slot": "morning"
-    },
-    {
-      "name": "Lullaby singing",
-      "date": "2026-11-24",
-      "slot": "evening"
-    },
-    {
-      "name": "Gentle coloring",
-      "date": "2026-11-24",
-      "slot": "evening"
-    },
-    {
-      "name": "Sticker activity",
-      "date": "2026-11-24",
-      "slot": "evening"
-    },
     {
       "name": "Bedtime yoga",
       "date": "2026-11-25",
@@ -74,6 +44,21 @@
     {
       "name": "Look at family photos",
       "date": "2026-11-27",
+      "slot": "evening"
+    },
+    {
+      "name": "Goodnight storytime",
+      "date": "2026-11-28",
+      "slot": "evening"
+    },
+    {
+      "name": "Star gazing",
+      "date": "2026-11-28",
+      "slot": "evening"
+    },
+    {
+      "name": "Build something with Duplo",
+      "date": "2026-11-28",
       "slot": "evening"
     }
   ]

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-27",
+  "last_updated": "2026-11-28",
   "streak_days": 1,
   "total_stars": 0,
   "history": {
@@ -1352,6 +1352,31 @@
           "id": "2026-11-27-evening-2",
           "name": "Look at family photos",
           "emoji": "📸",
+          "category": "creative",
+          "completed": false
+        }
+      ]
+    },
+    "2026-11-28": {
+      "evening": [
+        {
+          "id": "2026-11-28-evening-0",
+          "name": "Goodnight storytime",
+          "emoji": "📖",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-28-evening-1",
+          "name": "Star gazing",
+          "emoji": "⭐",
+          "category": "creative",
+          "completed": false
+        },
+        {
+          "id": "2026-11-28-evening-2",
+          "name": "Build something with Duplo",
+          "emoji": "🧱",
           "category": "creative",
           "completed": false
         }
